@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginAct">
+
+    <ImageView
+        android:layout_width="@dimen/_200sdp"
+        android:layout_height="@dimen/_100sdp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="-72dp"
+        android:src="@drawable/cloud"
+        android:layout_marginTop="-50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="-72dp" />
+    <ImageView
+        android:layout_width="@dimen/_200sdp"
+        android:layout_height="@dimen/_100sdp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="-57dp"
+        android:layout_marginEnd="-12dp"
+        android:layout_marginRight="-12dp"
+        android:src="@drawable/cloud" />
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="@dimen/_80sdp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="@dimen/_24sdp"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/logo"/>
+
+    <androidx.cardview.widget.CardView
+        android:elevation="@dimen/_4sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/_20sdp"
+        app:cardElevation="@dimen/_2sdp"
+        android:layout_marginTop="@dimen/_24sdp"
+        android:layout_marginLeft="@dimen/_12sdp"
+        android:layout_marginRight="@dimen/_12sdp"
+        android:layout_below="@+id/imageView">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_weight="1"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/robotomedium"
+                android:text="@string/masuk"
+                android:layout_gravity="center"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_12sdp"
+                android:gravity="center_horizontal" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/_12sdp"
+                android:layout_marginLeft="@dimen/_12sdp"
+                >
+                <EditText
+                    android:textSize="@dimen/_14sdp"
+                    android:lineSpacingExtra="@dimen/_1sdp"
+                    android:hint="Username"
+                    android:inputType="text"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="@font/robotolight"
+                    android:maxLines="1"
+                    android:id="@+id/et_username"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent" />
+            </com.google.android.material.textfield.TextInputLayout>  <com.google.android.material.textfield.TextInputLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginRight="@dimen/_12sdp"
+                android:layout_marginLeft="@dimen/_12sdp"
+                android:layout_marginBottom="@dimen/_24sdp"
+                app:passwordToggleEnabled="true"
+                >
+                <EditText
+                    android:textSize="@dimen/_14sdp"
+                    android:lineSpacingExtra="@dimen/_1sdp"
+                    android:hint="Password"
+                    android:inputType="textPassword"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="@font/robotolight"
+                    android:maxLines="1"
+                    android:id="@+id/et_password"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:text="LOGIN"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/_18sdp"
+                android:fontFamily="@font/robotomedium"
+                android:background="@drawable/bg_button_primary"
+                android:layout_marginLeft="@dimen/_64sdp"
+                android:layout_marginRight="@dimen/_64sdp"
+                android:layout_marginBottom="@dimen/_12sdp"
+            />
+            <TextView
+                android:gravity="center"
+                android:fontFamily="@font/robotolight"
+                android:textSize="@dimen/_12sdp"
+                android:layout_marginBottom="@dimen/_12sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Belum Punya Akun? Registrasi Sekarang"
+                />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_150sdp"
+        android:background="@drawable/sea"
+        android:scaleType="centerCrop"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="-10dp"/>
+
+</RelativeLayout>
