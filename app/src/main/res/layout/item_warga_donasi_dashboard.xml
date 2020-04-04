@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/iv_warga"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:background="@color/text_red"
+        android:layout_marginRight="@dimen/_13sdp"
+        android:layout_marginTop="@dimen/_13sdp"
+        android:layout_marginBottom="@dimen/_13sdp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        />
+
+    <TextView
+        android:id="@+id/tv_name_warga"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Faris Ghilmany"
+        android:textColor="@color/text_black"
+        android:textSize="@dimen/_12sdp"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_toRightOf="@+id/iv_warga"
+        android:layout_alignTop="@id/iv_warga"
+        android:layout_toEndOf="@+id/iv_warga"/>
+
+    <TextView
+        android:id="@+id/tv_alamat_warga"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bandung"
+        android:layout_toRightOf="@+id/iv_warga"
+        android:layout_below="@id/tv_name_warga"
+        android:layout_alignBottom="@id/iv_warga"
+        android:layout_toEndOf="@+id/iv_warga" />
+
+    <Button
+        android:id="@+id/btn_detail_warga"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_18sdp"
+        android:text="@string/lihat_detail"
+        android:textSize="10sp"
+        android:textColor="@color/text_white"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/bg_button_primary"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/btn_detail_warga"
+        android:layout_marginBottom="-18dp"
+        android:textSize="10sp"
+        android:layout_alignRight="@id/btn_detail_warga"
+        android:layout_alignStart="@id/btn_detail_warga"
+        android:layout_alignLeft="@id/btn_detail_warga"
+        android:layout_alignEnd="@id/btn_detail_warga"
+        android:layout_alignBottom="@id/btn_detail_warga"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:src="@drawable/ic_bookmark_green"
+            android:gravity="center_vertical"
+            android:padding="@dimen/_1sdp"/>
+        <TextView
+            android:id="@+id/tv_stat_donasi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Jemput"
+            android:gravity="center_vertical"
+            android:padding="@dimen/_2sdp"/>
+    </LinearLayout>
+</RelativeLayout>

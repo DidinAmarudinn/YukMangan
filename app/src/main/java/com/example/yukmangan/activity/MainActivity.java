@@ -1,4 +1,4 @@
-package com.example.yukmangan;
+package com.example.yukmangan.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.google.android.material.button.MaterialButton;
+import com.example.yukmangan.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private Button btn_masuk,btn_daftar;

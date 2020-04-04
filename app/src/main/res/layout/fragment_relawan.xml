@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.RelawanFragment">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_150sdp"
+                android:background="@color/colorPrimary"
+                android:src="@drawable/group_52"
+                android:scaleType="centerCrop" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/_12sdp">
+
+
+                <LinearLayout
+                    android:id="@+id/ll_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="16dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3">
+
+                        <TextView
+                            android:id="@+id/relawan_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/dashboard_relawan"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"/>
+
+                        <TextView
+                            android:id="@+id/tv_name_relawan_dashboard"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/relawan_text"
+                            tools:text="Faris Ghilmany"
+                            android:textColor="@color/text_white"
+                            android:textSize="14sp"/>
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="5"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:padding="@dimen/_5sdp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:src="@drawable/ic_chat"/>
+
+                        <ImageView
+                            android:padding="@dimen/_3sdp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:src="@drawable/ic_notifications"/>
+
+                        <ImageView
+                            android:padding="@dimen/_3sdp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:src="@drawable/ic_settings"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_item_box"
+                    android:layout_below="@id/ll_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="@dimen/_6sdp"
+                    app:cardElevation="1dp"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="8dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/informasi_patungan_mandiri_pangan"
+                            android:textColor="@color/text_blue"
+                            android:textSize="@dimen/_12sdp"
+                            android:layout_marginBottom="@dimen/_4sdp"/>
+
+                        <TextView
+                            android:id="@+id/tv_alamat_relawan_dashboard"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="@string/dummy_text"
+                            android:layout_marginBottom="@dimen/_4sdp"
+                            />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="4dp"
+                            android:layout_marginBottom="@dimen/_4sdp"
+                            android:layout_marginTop="@dimen/_4sdp">
+
+                            <ImageView
+                                android:id="@+id/gambar_saldo"
+                                android:layout_width="@dimen/_50sdp"
+                                android:layout_height="@dimen/_50sdp"
+                                android:src="@drawable/ic_saldo"
+                                android:padding="@dimen/_6sdp"
+                                android:layout_alignTop="@id/saldo"
+                                android:layout_alignBottom="@+id/tv_update_saldo"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true" />
+
+                            <TextView
+                                android:id="@+id/saldo"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:text="@string/saldo"
+                                android:textSize="18sp"
+                                android:layout_marginBottom="@dimen/_1sdp"
+                                android:layout_toRightOf="@id/gambar_saldo"
+                                android:layout_toEndOf="@id/gambar_saldo"
+                                android:layout_toLeftOf="@id/iv_restore_saldo"
+                                android:layout_toStartOf="@id/iv_restore_saldo" />
+
+                            <TextView
+                                android:id="@+id/tv_relawan_saldo_dashboard"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Rp. !00.000"
+                                android:textStyle="bold"
+                                android:textSize="16sp"
+                                android:textColor="@color/text_red"
+                                android:layout_toRightOf="@id/gambar_saldo"
+                                android:layout_toEndOf="@id/gambar_saldo"
+                                android:layout_toLeftOf="@id/iv_restore_saldo"
+                                android:layout_toStartOf="@id/iv_restore_saldo"
+                                android:layout_below="@id/saldo"
+                                android:layout_marginBottom="@dimen/_3sdp"/>
+
+                            <TextView
+                                android:id="@+id/tv_update_saldo"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Update tanggal : 12 April 2020"
+                                android:textSize="12sp"
+                                android:layout_below="@id/tv_relawan_saldo_dashboard"
+                                android:layout_toRightOf="@id/gambar_saldo"
+                                android:layout_toEndOf="@id/gambar_saldo"
+                                android:layout_toLeftOf="@id/iv_restore_saldo"
+                                android:layout_toStartOf="@id/iv_restore_saldo"
+                                android:layout_marginBottom="@dimen/_2sdp"/>
+
+                            <ImageView
+                                android:id="@+id/iv_restore_saldo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_restore"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignBottom="@id/tv_update_saldo"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginRight="@dimen/_8sdp"
+                                android:layout_marginEnd="@dimen/_8sdp" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="4dp"
+                            android:layout_marginBottom="@dimen/_4sdp"
+                            android:layout_marginTop="@dimen/_4sdp">
+
+                            <ImageView
+                                android:id="@+id/gambar_beras"
+                                android:layout_width="@dimen/_50sdp"
+                                android:layout_height="@dimen/_50sdp"
+                                android:src="@drawable/ic_beras"
+                                android:padding="@dimen/_6sdp"
+                                android:layout_alignTop="@id/beras"
+                                android:layout_alignBottom="@+id/tv_update_beras"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true" />
+
+                            <TextView
+                                android:id="@+id/beras"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:text="@string/stok_beras"
+                                android:textSize="18sp"
+                                android:layout_marginBottom="@dimen/_1sdp"
+                                android:layout_toRightOf="@id/gambar_beras"
+                                android:layout_toEndOf="@id/gambar_beras"
+                                android:layout_toLeftOf="@id/iv_restore_beras"
+                                android:layout_toStartOf="@id/iv_restore_beras" />
+
+                            <TextView
+                                android:id="@+id/tv_relawan_beras_dashboard"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Rp. !00.000"
+                                android:textStyle="bold"
+                                android:textSize="16sp"
+                                android:textColor="@color/text_yellow"
+                                android:layout_toRightOf="@id/gambar_beras"
+                                android:layout_toEndOf="@id/gambar_beras"
+                                android:layout_toLeftOf="@id/iv_restore_beras"
+                                android:layout_toStartOf="@id/iv_restore_beras"
+                                android:layout_below="@id/beras"
+                                android:layout_marginBottom="@dimen/_3sdp"/>
+
+                            <TextView
+                                android:id="@+id/tv_update_beras"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Update tanggal : 12 April 2020"
+                                android:textSize="12sp"
+                                android:layout_below="@id/tv_relawan_beras_dashboard"
+                                android:layout_toRightOf="@id/gambar_beras"
+                                android:layout_toEndOf="@id/gambar_beras"
+                                android:layout_toLeftOf="@id/iv_restore_beras"
+                                android:layout_toStartOf="@id/iv_restore_beras"
+                                android:layout_marginBottom="@dimen/_2sdp"/>
+
+                            <ImageView
+                                android:id="@+id/iv_restore_beras"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_restore"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignBottom="@id/tv_update_beras"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginRight="@dimen/_8sdp"
+                                android:layout_marginEnd="@dimen/_8sdp" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="4dp"
+                            android:layout_marginBottom="@dimen/_8sdp"
+                            android:layout_marginTop="@dimen/_4sdp">
+
+                            <ImageView
+                                android:id="@+id/gambar_makanan"
+                                android:layout_width="@dimen/_50sdp"
+                                android:layout_height="@dimen/_50sdp"
+                                android:src="@drawable/ic_makanan"
+                                android:padding="@dimen/_6sdp"
+                                android:layout_alignTop="@id/makanan"
+                                android:layout_alignBottom="@+id/tv_update_makanan"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true" />
+
+                            <TextView
+                                android:id="@+id/makanan"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:text="@string/saldo"
+                                android:textSize="18sp"
+                                android:layout_marginBottom="@dimen/_1sdp"
+                                android:layout_toRightOf="@id/gambar_makanan"
+                                android:layout_toEndOf="@id/gambar_makanan"
+                                android:layout_toLeftOf="@id/iv_restore_makanan"
+                                android:layout_toStartOf="@id/iv_restore_makanan" />
+
+                            <TextView
+                                android:id="@+id/tv_relawan_makanan_dashboard"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Rp. !00.000"
+                                android:textStyle="bold"
+                                android:textSize="16sp"
+                                android:textColor="@color/text_green"
+                                android:layout_toRightOf="@id/gambar_makanan"
+                                android:layout_toEndOf="@id/gambar_makanan"
+                                android:layout_toLeftOf="@id/iv_restore_makanan"
+                                android:layout_toStartOf="@id/iv_restore_makanan"
+                                android:layout_below="@id/makanan"
+                                android:layout_marginBottom="@dimen/_3sdp"/>
+
+                            <TextView
+                                android:id="@+id/tv_update_makanan"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Update tanggal : 12 April 2020"
+                                android:textSize="12sp"
+                                android:layout_below="@id/tv_relawan_makanan_dashboard"
+                                android:layout_toRightOf="@id/gambar_makanan"
+                                android:layout_toEndOf="@id/gambar_makanan"
+                                android:layout_toLeftOf="@id/iv_restore_makanan"
+                                android:layout_toStartOf="@id/iv_restore_makanan"
+                                android:layout_marginBottom="@dimen/_2sdp"/>
+
+                            <ImageView
+                                android:id="@+id/iv_restore_makanan"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_restore"
+                                android:layout_alignParentTop="true"
+                                android:layout_alignBottom="@id/tv_update_makanan"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginRight="@dimen/_8sdp"
+                                android:layout_marginEnd="@dimen/_8sdp" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <Button
+                    android:id="@+id/btn_input_donasi"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:background="@drawable/bg_button_primary"
+                    android:layout_below="@id/cv_item_box"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:text="INPUT DONASI"
+                    android:textColor="@color/text_white"
+                    android:textSize="@dimen/_12sdp"/>
+
+                <Button
+                    android:id="@+id/btn_input_warga_darurat"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:background="@drawable/bg_button_red"
+                    android:layout_below="@id/btn_input_donasi"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="INPUT WARGA DARURAT"
+                    android:textColor="@color/text_white"
+                    android:textSize="@dimen/_12sdp"/>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_darurat_baru"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/btn_input_warga_darurat"
+                    app:cardCornerRadius="@dimen/_6sdp"
+                    app:cardElevation="1dp"
+                    android:layout_marginTop="@dimen/_12sdp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/_10sdp">
+
+                        <TextView
+                            android:id="@+id/text_darurat"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/warga_darurat_terbaru"
+                            android:textColor="@color/text_blue"
+                            android:textSize="@dimen/_12sdp"
+                            android:layout_marginBottom="@dimen/_8sdp"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignRight="@+id/lihatsemua"
+                            android:layout_alignEnd="@+id/lihatsemua"
+                            android:layout_alignParentStart="true" />
+
+                        <TextView
+                            android:id="@+id/lihatsemua"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/lihat_semua"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentEnd="true" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_warga_darurat_baru"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/text_darurat"
+                            tools:listitem="@layout/item_warga_darurat_dashboard"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentLeft="true"
+                            tools:itemCount="2"/>
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_donasi_warga"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/cv_darurat_baru"
+                    app:cardCornerRadius="@dimen/_6sdp"
+                    app:cardElevation="1dp"
+                    android:layout_marginTop="@dimen/_12sdp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/_10sdp">
+
+                        <TextView
+                            android:id="@+id/text_donasi"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/donasi_warga_terbaru"
+                            android:textColor="@color/text_blue"
+                            android:textSize="@dimen/_12sdp"
+                            android:layout_marginBottom="@dimen/_4sdp"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignRight="@+id/lihatsemua2"
+                            android:layout_alignEnd="@+id/lihatsemua2"
+                            android:layout_alignParentStart="true" />
+
+                        <TextView
+                            android:id="@+id/lihatsemua2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/lihat_semua"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentEnd="true" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_donasi_warga"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/text_donasi"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentLeft="true"
+                            tools:itemCount="2"
+                            tools:listitem="@layout/item_warga_donasi_dashboard"
+                            />
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </RelativeLayout>
+
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+</RelativeLayout>

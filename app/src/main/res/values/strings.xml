@@ -12,4 +12,13 @@
     <string name="textdashboard">Yuk Gabung\nGerakan Mandiri Pangan\nSelamatkan Tetangga Kita\nDari Ancaman\nKesulitan Pangan\n#BersamaLawanCovid19</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dashboard_relawan">DASHBOARD RELAWAN</string>
+    <string name="dummy_text">RW. 07 Rancaekek Kencana Kab. Bandung</string>
+    <string name="informasi_patungan_mandiri_pangan">Informasi Patungan Mandiri Pangan</string>
+    <string name="saldo">Saldo</string>
+    <string name="stok_beras">Stok Beras</string>
+    <string name="warga_darurat_terbaru">Warga Darurat Terbaru</string>
+    <string name="lihat_semua"><u>Lihat Semua</u></string>
+    <string name="donasi_warga_terbaru">Donasi Warga Terbaru</string>
+    <string name="lihat_detail">Lihat Detail</string>
 </resources>
