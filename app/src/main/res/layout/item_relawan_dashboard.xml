@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/_8sdp"
+    android:layout_marginRight="@dimen/_4sdp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="@dimen/_160sdp"
+        android:layout_height="@dimen/_60sdp"
+        android:elevation="0dp"
+        app:cardCornerRadius="@dimen/_12sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimaryDark"
+            android:orientation="horizontal"
+            >
+            <com.github.florent37.shapeofview.shapes.CircleView
+                android:id="@+id/img_relawan"
+                android:layout_marginLeft="@dimen/_6sdp"
+                android:layout_gravity="center"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:elevation="@dimen/_2sdp"
+                app:shape_circle_borderColor="#FFFF"
+                app:shape_circle_borderWidth="@dimen/_1sdp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/_6sdp"
+                android:layout_marginRight="@dimen/_6sdp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ruhaya Unang"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_12sdp"
+                    android:id="@+id/tv_nama_relawan"
+                    android:textColor="@color/text_white"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:fontFamily="@font/robotomedium"/>
+                <TextView
+                    android:id="@+id/tv_jabatan_relawan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_white"
+                    android:fontFamily="sans-serif-light"
+                    android:text="Kordinator Relawan"
+                    android:textSize="@dimen/_10sdp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

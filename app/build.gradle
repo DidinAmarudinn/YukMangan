@@ -54,4 +54,5 @@ dependencies {
 
     //image
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'com.github.florent37:shapeofview:1.4.5'
 }

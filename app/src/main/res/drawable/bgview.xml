@@ -4,4 +4,13 @@
     <solid
         android:color="@color/colorPrimary"
         />
+
+    <corners
+        android:bottomLeftRadius="@dimen/_10sdp"
+        android:bottomRightRadius="@dimen/_10sdp"
+        />
+    <gradient
+        android:startColor="@color/colorPrimaryDark"
+        android:endColor="#C92196F3"
+        android:angle="45"/>
 </shape>
