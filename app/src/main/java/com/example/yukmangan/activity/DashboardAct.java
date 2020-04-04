@@ -1,10 +1,8 @@
-package com.example.yukmangan.activity;
+package com.example.yukmangan;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-
-import com.example.yukmangan.R;
 
 public class DashboardAct extends AppCompatActivity {
 

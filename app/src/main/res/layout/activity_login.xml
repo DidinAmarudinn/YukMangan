@@ -115,6 +115,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_40sdp"
                 android:text="LOGIN"
+                android:id="@+id/btn_masuk"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/_18sdp"
                 android:fontFamily="@font/robotomedium"

@@ -14,7 +14,7 @@
         android:icon="@drawable/icon_help"/>
     <item
         android:id="@+id/chat_menu"
-        android:title="@string/account"
+        android:title="@string/chat"
         android:icon="@drawable/icon_chat"/>
     <item
         android:id="@+id/account_menu"
