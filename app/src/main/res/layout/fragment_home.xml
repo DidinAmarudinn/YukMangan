@@ -67,16 +67,17 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="@dimen/_30sdp"
-                android:layout_height="@dimen/_30sdp"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
                 android:layout_marginLeft="@dimen/_64sdp"
-                android:src="@drawable/ic_notifications" />
+                android:src="@drawable/ic_notifications"
+                tools:ignore="VectorDrawableCompat" />
 
             <ImageView
-                android:layout_width="@dimen/_30sdp"
-                android:layout_height="@dimen/_30sdp"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
                 android:layout_marginLeft="@dimen/_12sdp"
-                android:src="@drawable/ic_settings" />
+                app:srcCompat="@drawable/ic_settings" />
 
         </LinearLayout>
     </LinearLayout>

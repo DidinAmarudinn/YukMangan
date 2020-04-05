@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.yukmangan.DashboardAct;
 import com.example.yukmangan.R;
 
 public class LoginAct extends AppCompatActivity {
@@ -19,7 +20,7 @@ public class LoginAct extends AppCompatActivity {
         btn_masuk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(LoginAct.this,DashboardAct.class);
+                Intent intent=new Intent(LoginAct.this, DashboardAct.class);
                 startActivity(intent);
             }
         });

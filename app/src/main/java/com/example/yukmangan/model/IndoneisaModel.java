@@ -1,42 +1,142 @@
 package com.example.yukmangan.model;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class IndoneisaModel {
-    @SerializedName("positif")
-    private String name;
-    @SerializedName("sembuh")
-    private String sembuh;
-    @SerializedName("meninggal")
-    private String meninggal;
 
-    public IndoneisaModel(String name, String sembuh, String meninggal) {
-        this.name = name;
-        this.sembuh = sembuh;
-        this.meninggal = meninggal;
+    @SerializedName("lastUpdate")
+    private String latUpdate;
+    @SerializedName("confirmed")
+    private IdnConfirmed idnConfirmed;
+    @SerializedName("recovered")
+    private IdnRecovered idnRecovered;
+    @SerializedName("deaths")
+    private IdnDeaths idnDeaths;
+
+    public String getLatUpdate() {
+        return latUpdate;
     }
 
-    public String getName() {
-        return name;
+    public void setLatUpdate(String latUpdate) {
+        this.latUpdate = latUpdate;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public IdnConfirmed getIdnConfirmed() {
+        return idnConfirmed;
     }
 
-    public String getSembuh() {
-        return sembuh;
+    public void setIdnConfirmed(IdnConfirmed idnConfirmed) {
+        this.idnConfirmed = idnConfirmed;
     }
 
-    public void setSembuh(String sembuh) {
-        this.sembuh = sembuh;
+    public IdnRecovered getIdnRecovered() {
+        return idnRecovered;
     }
 
-    public String getMeninggal() {
-        return meninggal;
+    public void setIdnRecovered(IdnRecovered idnRecovered) {
+        this.idnRecovered = idnRecovered;
     }
 
-    public void setMeninggal(String meninggal) {
-        this.meninggal = meninggal;
+    public IdnDeaths getIdnDeaths() {
+        return idnDeaths;
     }
+
+    public void setIdnDeaths(IdnDeaths idnDeaths) {
+        this.idnDeaths = idnDeaths;
+    }
+
+    public IndoneisaModel() {
+        this.latUpdate = latUpdate;
+        this.idnConfirmed = idnConfirmed;
+        this.idnRecovered = idnRecovered;
+        this.idnDeaths = idnDeaths;
+    }
+
+    public class IdnRecovered {
+        @SerializedName("value")
+        private String value;
+
+        public String getValue() {
+            return value;
+        }
+
+        public void setValue(String value) {
+            this.value = value;
+        }
+
+        public String getDetail() {
+            return detail;
+        }
+
+        public void setDetail(String detail) {
+            this.detail = detail;
+        }
+
+        @SerializedName("detail")
+        private String detail;
+
+        public IdnRecovered(String value, String detail) {
+            this.value = value;
+            this.detail = detail;
+        }
+    }
+
+    public class IdnConfirmed {
+        public IdnConfirmed(String value, String detail) {
+            this.value = value;
+            this.detail = detail;
+        }
+
+        @SerializedName("value")
+        private String value;
+
+        public String getValue() {
+            return value;
+        }
+
+        public void setValue(String value) {
+            this.value = value;
+        }
+
+        public String getDetail() {
+            return detail;
+        }
+
+        public void setDetail(String detail) {
+            this.detail = detail;
+        }
+
+        @SerializedName("detail")
+        private String detail;
+    }
+
+    public class IdnDeaths {
+        @SerializedName("value")
+        private String value;
+        @SerializedName("detail")
+        private String detail;
+
+        public IdnDeaths(String value, String detail) {
+            this.value = value;
+            this.detail = detail;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        public void setValue(String value) {
+            this.value = value;
+        }
+
+        public String getDetail() {
+            return detail;
+        }
+
+        public void setDetail(String detail) {
+            this.detail = detail;
+        }
+    }
+
 }

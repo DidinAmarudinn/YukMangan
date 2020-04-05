@@ -8,7 +8,6 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -16,7 +15,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_150sdp"
-                android:background="@color/colorPrimary"
+                android:background="@drawable/bgview"
                 android:src="@drawable/group_52"
                 android:scaleType="centerCrop" />
 
@@ -75,14 +74,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:src="@drawable/ic_notifications"/>
+                            app:srcCompat="@drawable/ic_notifications"/>
 
                         <ImageView
                             android:padding="@dimen/_3sdp"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:src="@drawable/ic_settings"/>
+                            app:srcCompat="@drawable/ic_settings"/>
 
                     </LinearLayout>
 

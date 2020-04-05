@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -29,15 +30,16 @@
             android:layout_alignParentRight="true"
             android:layout_marginTop="-30dp"
             android:layout_marginRight="-10dp"
-            android:src="@drawable/group_52" />
+            android:src="@drawable/group52" />
 
         <ImageView
+            android:layout_marginTop="@dimen/_50sdp"
             android:layout_width="@dimen/_150sdp"
             android:layout_height="@dimen/_100sdp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginLeft="-70dp"
-            android:src="@drawable/group_52" />
+            android:src="@drawable/group52" />
     </RelativeLayout>
 
     <LinearLayout
@@ -67,11 +69,11 @@
                 android:textSize="@dimen/_14sdp"/>
 
             <TextView
-                android:id="@+id/tv_name_relawan_dashboard"
+                android:id="@+id/tv_nama_member_dashbooard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/relawan_text"
-                tools:text="Ruhaya"
+                android:text="Ruhaya Unang"
                 android:textColor="@color/text_white"
                 android:textSize="@dimen/_11sdp"/>
         </RelativeLayout>
@@ -82,16 +84,17 @@
             android:gravity="center"
             android:orientation="horizontal">
             <ImageView
-                android:layout_width="@dimen/_24sdp"
-                android:layout_height="@dimen/_24sdp"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
                 android:layout_weight="1"
                 android:src="@drawable/ic_chat"/>
 
             <ImageView
-                android:layout_width="@dimen/_24sdp"
-                android:layout_height="@dimen/_24sdp"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
                 android:layout_weight="1"
-                android:src="@drawable/ic_notifications"/>
+                android:src="@drawable/ic_notifications"
+                tools:ignore="VectorDrawableCompat" />
 
         </LinearLayout>
 
@@ -99,9 +102,12 @@
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginLeft="@dimen/_12sdp"
         android:layout_marginRight="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_55sdp"
+        android:layout_marginBottom="@dimen/_50sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
@@ -124,7 +130,6 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical"
                     android:padding="8dp">
-
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -424,6 +429,7 @@
                         android:textSize="@dimen/_10sdp" />
                 </RelativeLayout>
             </LinearLayout>
+
             <RelativeLayout
                 android:id="@+id/relativeLayout2"
                 android:layout_width="match_parent"
@@ -439,8 +445,10 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:fontFamily="@font/robotomedium"
+                    android:gravity="center_horizontal"
                     android:padding="@dimen/_5sdp"
                     android:text="@string/nomer_rek_resmi_rw"
+                    android:textAlignment="center"
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/_9sdp" />
             </RelativeLayout>
@@ -573,11 +581,12 @@
                 app:layout_constraintTop_toBottomOf="@+id/view2" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_relawan"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_80sdp"
-                android:id="@+id/rv_relawan"
-                tools:listitem="@layout/item_relawan_dashboard"
-                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+                app:layout_constraintTop_toBottomOf="@+id/textView2"
+                tools:listitem="@layout/item_relawan_dashboard" />
+
             <View
                 android:id="@+id/view3"
                 android:layout_width="match_parent"
@@ -597,13 +606,16 @@
                 android:textSize="@dimen/_14sdp"
                 android:textStyle="bold"
                 app:layout_constraintTop_toBottomOf="@+id/view3" />
+
             <androidx.recyclerview.widget.RecyclerView
-                android:layout_marginTop="@dimen/_8sdp"
+                android:id="@+id/rv_member"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_80sdp"
-                android:id="@+id/rv_member"
-                tools:listitem="@layout/item_member_dashboard"
-                app:layout_constraintTop_toBottomOf="@+id/textvi" />
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_12sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textvi"
+                tools:listitem="@layout/item_member_dashboard" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

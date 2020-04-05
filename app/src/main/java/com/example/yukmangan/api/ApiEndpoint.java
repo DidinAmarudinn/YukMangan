@@ -9,8 +9,6 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 
 public interface ApiEndpoint {
-    @GET(Api.END_POINT_PROVINSI)
-    Call<List<ProvinsiModel>> getProvinsi();
-    @GET(Api.END_POINT_SUMMARY_INDONESIA)
-    Call<List<IndoneisaModel>> getDataIndo();
+    @GET(Api.END_POINT_IDN)
+    Call<IndoneisaModel> getSummaryIdn();
 }

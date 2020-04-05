@@ -8,7 +8,6 @@ import com.example.yukmangan.api.ApiEndpoint;
 import com.example.yukmangan.api.ApiService;
 import com.example.yukmangan.model.IndoneisaModel;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -17,24 +16,24 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 
 public class IndonesiaViewModel extends ViewModel {
-    private MutableLiveData<ArrayList<IndoneisaModel>> mutableLiveData=new MutableLiveData<>();
-    public void setDataIndo(){
+    private MutableLiveData<IndoneisaModel> mutableLiveData=new MutableLiveData<>();
+    public void setCountryData(){
         Retrofit retrofit= ApiService.getRetrofitService();
-        ApiEndpoint apiEndpoint=retrofit.create(ApiEndpoint.class);
-        Call<List<IndoneisaModel>> call=apiEndpoint.getDataIndo();
-        call.enqueue(new Callback<List<IndoneisaModel>>() {
+        ApiEndpoint apiEndPoint=retrofit.create(ApiEndpoint.class);
+        Call<IndoneisaModel> call=apiEndPoint.getSummaryIdn();
+        call.enqueue(new Callback<IndoneisaModel>() {
             @Override
-            public void onResponse(Call<List<IndoneisaModel>> call, Response<List<IndoneisaModel>> response) {
-                mutableLiveData.setValue((ArrayList<IndoneisaModel>)response.body());
+            public void onResponse(Call<IndoneisaModel> call, Response<IndoneisaModel> response) {
+                mutableLiveData.setValue(response.body());
             }
 
             @Override
-            public void onFailure(Call<List<IndoneisaModel>> call, Throwable t) {
+            public void onFailure(Call<IndoneisaModel> call, Throwable t) {
 
             }
         });
     }
-        public MutableLiveData<ArrayList<IndoneisaModel>> getDataIndo(){
-          return mutableLiveData;
-        }
+    public LiveData<IndoneisaModel> getCountryData(){
+        return mutableLiveData;
+    }
 }
