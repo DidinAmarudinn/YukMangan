@@ -125,7 +125,8 @@
                     android:backgroundTint="@color/colorPrimary"
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent" />
-            </com.google.android.material.textfield.TextInputLayout>  <com.google.android.material.textfield.TextInputLayout
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -153,6 +154,7 @@
                 android:layout_height="@dimen/_40sdp"
                 android:text="DAFTAR"
                 android:textColor="@android:color/white"
+                android:id="@+id/btn_daftar"
                 android:textSize="@dimen/_18sdp"
                 android:fontFamily="@font/robotomedium"
                 android:background="@drawable/bg_button_primary"

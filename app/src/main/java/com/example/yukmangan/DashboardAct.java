@@ -9,14 +9,17 @@ import android.view.MenuItem;
 
 import com.example.yukmangan.fragment.HomeFragment;
 import com.example.yukmangan.fragment.MemberFragment;
+import com.example.yukmangan.helper.PreferenceHelper;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class DashboardAct extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
     BottomNavigationView bn_main;
+    private PreferenceHelper preferenceHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+        preferenceHelper=new PreferenceHelper(this);
         loadFragment(new HomeFragment());
         bn_main=findViewById(R.id.bn_main);
         bn_main.setOnNavigationItemSelectedListener(this);
