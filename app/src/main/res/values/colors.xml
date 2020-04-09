@@ -13,6 +13,9 @@
     <color name="text_yellow">#F6BD1C</color>
     <color name="text_green">#0BD591</color>
     <color name="text_black">#000000</color>
+    <color name="recovered">#a494bb</color>
+    <color name="positif">#54d8fe</color>
+    <color name="deaths">#fe8373</color>
 
 
 </resources>

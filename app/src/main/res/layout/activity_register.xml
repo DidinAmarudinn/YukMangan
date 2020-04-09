@@ -4,8 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.login.LoginAct">
-
+    tools:context="com.example.yukmangan.presentation.register.RegisterAct">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_180sdp"
+        android:background="@drawable/bgview"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        />
     <ImageView
         android:layout_width="@dimen/_200sdp"
         android:layout_height="@dimen/_100sdp"
@@ -163,6 +170,7 @@
                 android:layout_marginBottom="@dimen/_12sdp"
                 />
             <TextView
+                android:id="@+id/tv_login"
                 android:gravity="center"
                 android:fontFamily="@font/robotolight"
                 android:textSize="@dimen/_12sdp"

@@ -1,4 +1,6 @@
-package com.example.yukmangan.presentation.register;
+// Updated upstream:app/src/main/java/com/example/yukmangan/presentation/register/RegisterAct.java
+package com.example.yukmangan.presentation.register;;
+// Stashed changes:app/src/main/java/com/example/yukmangan/activity/RegisterAct.java
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,12 +10,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.yukmangan.presentation.DashboardAct;
+import com.example.yukmangan.presentation.home.DashboardAct;
 import com.example.yukmangan.R;
 import com.example.yukmangan.network.apiInterface.RegisterInterface;
 import com.example.yukmangan.helper.PreferenceHelper;
+import com.example.yukmangan.presentation.login.LoginAct;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -29,16 +33,15 @@ public class RegisterAct extends AppCompatActivity {
     private EditText et_email,et_name,et_alamat,et_password;
     private PreferenceHelper preferenceHelper;
     private Button btn_daftar;
+    private TextView tv_login;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         preferenceHelper = new PreferenceHelper(this);
         if (preferenceHelper.getSPSudahLogin()){
-            preferenceHelper.saveSPBoolean(PreferenceHelper.SP_NAMA,true);
-            startActivity(new Intent(RegisterAct.this, DashboardAct.class)
+                    startActivity(new Intent(RegisterAct.this, DashboardAct.class)
                     .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-            finish();
+                    finish();
         }
         setContentView(R.layout.activity_register);
         et_alamat=findViewById(R.id.et_alamat);
@@ -50,78 +53,79 @@ public class RegisterAct extends AppCompatActivity {
         btn_daftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(RegisterAct.this,DashboardAct.class);
-                startActivity(intent);
-                RegisterAct.this.finish();
-                //registMe();
+                registerMe();
             }
         });
-
+        tv_login=findViewById(R.id.tv_login);
+        tv_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent login=new Intent(RegisterAct.this, LoginAct.class);
+                startActivity(login);
+            }
+        });
     }
-    private void registMe(){
-        final String nama_lengkap=et_name.getText().toString();
-        final String email=et_email.getText().toString();
-        final String alamat=et_alamat.getText().toString();
-        final String password=et_password.getText().toString();
-
-
-        Retrofit  retrofit   =   new   Retrofit . Builder ()
-                . baseUrl ( RegisterInterface . REGISTRASI_URL )
-                . addConverterFactory ( ScalarsConverterFactory. create () )
-                . build () ;
-
-        RegisterInterface api= retrofit.create(RegisterInterface.class);
-        Call<String> call=api.getUserRegister(nama_lengkap,email,alamat,password);
+    private void registerMe() {
+        final String name = et_name.getText().toString();
+        final String email = et_email.getText().toString();
+        final String alamat = et_alamat.getText().toString();
+        final String password = et_password.getText().toString();
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(RegisterInterface.REGISTRASI_URL)
+                .addConverterFactory(ScalarsConverterFactory.create())
+                .build();
+        RegisterInterface api = retrofit.create(RegisterInterface.class);
+        Call<String> call = api.getUserRegister(name,email,alamat,password);
         call.enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
-                    if (response.isSuccessful()){
-                        if (response.body() !=null){
-                            Log.i("OnSucces",response.body().toString());
-
-                            String jsrespone=response.body().toString();
-                           try {
-                               ParseRegData(jsrespone);
-                               Intent intent=new Intent(RegisterAct.this,DashboardAct.class);
-                               intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
-                               startActivity(intent);
-                               finish();
-                           } catch (Exception e) {
-                               e.printStackTrace();
-                           }
-                        }else {
-                            Log.i("On EmptyRespone","Return empety respone");
+                //Toast.makeText()
+                if (response.isSuccessful()) {
+                    if (response.body() != null) {
+                        Log.i("onSuccess", response.body().toString());
+                        String jsonresponse = response.body().toString();
+                        try {
+                            parseRegData(jsonresponse);
+                            Toast.makeText(RegisterAct.this, "Registered Successfully!", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(RegisterAct.this,DashboardAct.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
+                            finish();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
                         }
-                    }
-            }
 
+                    } else {
+                        Log.i("onEmptyResponse", "Returned empty response");//Toast.makeText(getContext(),"Nothing returned",Toast.LENGTH_LONG).show();
+                    }
+                }
+            }
             @Override
             public void onFailure(Call<String> call, Throwable t) {
-
             }
         });
-
     }
-
-    private void ParseRegData(String respone) throws JSONException{
-        JSONObject jsonObject=new JSONObject(respone);
+    private void parseRegData(String response) throws JSONException {
+        JSONObject jsonObject = new JSONObject(response);
         if (jsonObject.optString("status").equals("true")){
-            saveInfo(respone);
-            Toast.makeText(RegisterAct.this,"Registrasi Berhasil",Toast.LENGTH_SHORT).show();
+            saveInfo(response);
 
+        }else {
+            Toast.makeText(RegisterAct.this, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
         }
     }
 
-    private void saveInfo(String respone) {
+    private void saveInfo(String response){
+        preferenceHelper.saveSPBoolean(PreferenceHelper.SP_SUDAH_LOGIN,true);
         try {
-            JSONObject jsonObject=new JSONObject(respone);
-            if (jsonObject.getString("status").equals("true")){
-                JSONArray jsonArray=jsonObject.getJSONArray("data");
-                for (int i=0; i<jsonArray.length(); i++){
-                    JSONObject dataobj=jsonArray.getJSONObject(i);
+            JSONObject jsonObject = new JSONObject(response);
+            if (jsonObject.getString("status").equals("true")) {
+                JSONArray dataArray = jsonObject.getJSONArray("data");
+                for (int i = 0; i < dataArray.length(); i++) {
+                    JSONObject dataobj = dataArray.getJSONObject(i);
                 }
             }
-        } catch (Exception e) {
+        } catch (JSONException e) {
             e.printStackTrace();
         }
     }

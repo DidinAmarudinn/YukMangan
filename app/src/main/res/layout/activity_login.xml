@@ -4,7 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.login.LoginAct">
+    tools:context="com.example.yukmangan.presentation.login.LoginAct">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_180sdp"
+        android:background="@drawable/bgview"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        />
     <ImageView
         android:layout_width="@dimen/_200sdp"
         android:layout_height="@dimen/_100sdp"
@@ -77,12 +85,12 @@
                 <EditText
                     android:textSize="@dimen/_14sdp"
                     android:lineSpacingExtra="@dimen/_1sdp"
-                    android:hint="Username"
-                    android:inputType="text"
+                    android:hint="Email"
+                    android:inputType="textEmailAddress"
                     android:textColor="@android:color/black"
                     android:fontFamily="@font/robotolight"
                     android:maxLines="1"
-                    android:id="@+id/et_username"
+                    android:id="@+id/etemail"
                     android:backgroundTint="@color/colorPrimary"
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent" />
@@ -104,7 +112,7 @@
                     android:textColor="@android:color/black"
                     android:fontFamily="@font/robotolight"
                     android:maxLines="1"
-                    android:id="@+id/et_password"
+                    android:id="@+id/etpassword"
                     android:backgroundTint="@color/colorPrimary"
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent" />
@@ -124,6 +132,7 @@
                 android:layout_marginBottom="@dimen/_12sdp"
             />
             <TextView
+                android:id="@+id/tv_register"
                 android:gravity="center"
                 android:fontFamily="@font/robotolight"
                 android:textSize="@dimen/_12sdp"

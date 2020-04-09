@@ -6,7 +6,6 @@ public class ProvinsiModel {
     @SerializedName("attributes")
     private Attributes attributes;
 
-
     public Attributes getAttributes() {
         return attributes;
     }

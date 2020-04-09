@@ -7,14 +7,15 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 public interface RegisterInterface {
-    String REGISTRASI_URL = "https://yukmangan.id/api/api/";
+    String REGISTRASI_URL = "https://yukmangan.id/api/relawan/";
     @FormUrlEncoded
-    @POST("relawan")
+    @POST("post_relawan")
      Call<String> getUserRegister(
             @Field("nama_lengkap") String name,
             @Field("email") String email,
             @Field("alamat") String alamat,
             @Field("password") String password
+
     ) ;
 
 }

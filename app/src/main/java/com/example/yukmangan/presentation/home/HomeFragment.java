@@ -1,19 +1,24 @@
 package com.example.yukmangan.presentation.home;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.example.yukmangan.R;
 import com.example.yukmangan.network.model.IndoneisaModel;
+import com.example.yukmangan.activity.MenuData;
 import com.example.yukmangan.viewmodel.IndonesiaViewModel;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Description;
@@ -26,9 +31,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class HomeFragment extends Fragment {
-
+public class HomeFragment extends Fragment implements View.OnClickListener{
     private ProgressDialog mProgressApp;
+    LinearLayout menu_data;
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -45,7 +50,9 @@ public class HomeFragment extends Fragment {
         mProgressApp.setTitle("Please Wait");
         mProgressApp.setCancelable(true);
         mProgressApp.setMessage("Show Data");
+        menu_data=view.findViewById(R.id.menu_data);
         mProgressApp.show();
+        menu_data.setOnClickListener(this);
         final PieChart pieChart=view.findViewById(R.id.piechart);
         IndonesiaViewModel viewModel=new ViewModelProvider(this,new ViewModelProvider.NewInstanceFactory()).
                 get(IndonesiaViewModel.class);
@@ -79,4 +86,13 @@ public class HomeFragment extends Fragment {
                 return view;
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.menu_data:
+                Intent menudata=new Intent(getActivity(), MenuData.class);
+                startActivity(menudata);
+                break;
+        }
+    }
 }
