@@ -11,10 +11,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.yukmangan.presentation.DashboardAct;
+import com.example.yukmangan.presentation.home.DashboardAct;
 import com.example.yukmangan.R;
 import com.example.yukmangan.apiInterface.LoginInterface;
 import com.example.yukmangan.helper.PreferenceHelper;
+import com.example.yukmangan.presentation.register.RegisterAct;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -42,26 +43,24 @@ public class LoginAct extends AppCompatActivity {
         btn_masuk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               //Intent intent=new Intent(LoginAct.this,DashboardAct.class);
-               //startActivity(intent);
-                loginUser();
+               Intent intent=new Intent(LoginAct.this,DashboardAct.class);
+               startActivity(intent);
+                //loginUser();
             }
         });
         tv_register=findViewById(R.id.tv_register);
         tv_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent regist= new Intent(LoginAct.this,RegisterAct.class);
+                Intent regist= new Intent(LoginAct.this, RegisterAct.class);
                 startActivity(regist);
             }
         });
 
     }
     private void loginUser() {
-
         final String username = et_email.getText().toString().trim();
         final String password = et_password.getText().toString().trim();
-
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(LoginInterface.URL_LOGIN)
                 .addConverterFactory(ScalarsConverterFactory.create())
@@ -79,10 +78,8 @@ public class LoginAct extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     if (response.body() != null) {
                         Log.i("onSuccess", response.body().toString());
-
                         String jsonresponse = response.body().toString();
                         parseLoginData(jsonresponse);
-
                     } else {
                         Log.i("onEmptyResponse", "Returned empty response");
                     }
@@ -91,7 +88,6 @@ public class LoginAct extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {
-
             }
         });
 

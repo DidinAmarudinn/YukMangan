@@ -52,12 +52,10 @@ public class RelawanFragment extends Fragment implements RelawanView {
     public void getDataRelawanById(Relawan relawan) {
         Log.e("ERROR",relawan.getData().get(0).getNamaLengkap());
         nama.setText(relawan.getData().get(0).getNamaLengkap());
-
     }
 
     @Override
     public void onFailure(Throwable error) {
         Log.e(RelawanFragment.class.getSimpleName(),error.getLocalizedMessage());
-
     }
 }

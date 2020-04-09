@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel;
 
 import com.example.yukmangan.api.ApiEndpoint;
 import com.example.yukmangan.api.ApiService;
-import com.example.yukmangan.model.ProvinsiModel;
+import com.example.yukmangan.network.model.ProvinsiModel;
 
 import java.util.ArrayList;
 import java.util.List;

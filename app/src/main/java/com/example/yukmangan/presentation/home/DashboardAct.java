@@ -1,4 +1,4 @@
-package com.example.yukmangan.presentation;
+package com.example.yukmangan.presentation.home;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

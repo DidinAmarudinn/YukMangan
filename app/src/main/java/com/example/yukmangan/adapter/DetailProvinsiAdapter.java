@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.yukmangan.R;
-import com.example.yukmangan.model.ProvinsiModel;
+import com.example.yukmangan.network.model.ProvinsiModel;
 
 import java.util.ArrayList;
 
@@ -50,6 +50,7 @@ public class DetailProvinsiAdapter extends RecyclerView.Adapter<DetailProvinsiAd
     public int getItemCount() {
         return list.size();
     }
+
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView tv_provinsi,tv_Confirmed,tv_Recovered,tv_Deaths;

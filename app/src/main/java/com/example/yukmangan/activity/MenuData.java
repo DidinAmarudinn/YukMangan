@@ -12,7 +12,7 @@ import android.os.Bundle;
 
 import com.example.yukmangan.R;
 import com.example.yukmangan.adapter.DetailProvinsiAdapter;
-import com.example.yukmangan.model.ProvinsiModel;
+import com.example.yukmangan.network.model.ProvinsiModel;
 import com.example.yukmangan.viewmodel.ProvinsiViewModel;
 
 import java.util.ArrayList;
