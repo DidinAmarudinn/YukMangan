@@ -4,11 +4,9 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.yukmangan.api.ApiEndpoint;
-import com.example.yukmangan.api.ApiService;
-import com.example.yukmangan.model.IndoneisaModel;
-
-import java.util.List;
+import com.example.yukmangan.network.api.ApiEndpoint;
+import com.example.yukmangan.network.api.ApiService;
+import com.example.yukmangan.network.model.IndoneisaModel;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -37,3 +35,4 @@ public class IndonesiaViewModel extends ViewModel {
         return mutableLiveData;
     }
 }
+

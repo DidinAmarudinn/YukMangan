@@ -1,4 +1,4 @@
-package com.example.yukmangan.activity;
+package com.example.yukmangan.presentation;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,8 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.yukmangan.DashboardAct;
 import com.example.yukmangan.R;
+import com.example.yukmangan.presentation.login.LoginAct;
+import com.example.yukmangan.presentation.register.RegisterAct;
 import com.example.yukmangan.helper.PreferenceHelper;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -29,12 +30,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_masuk:
-                Intent masuk=new Intent(MainActivity.this,LoginAct.class);
+                Intent masuk=new Intent(MainActivity.this, LoginAct.class);
                 startActivity(masuk);
                 MainActivity.this.finish();
                 break;
             case R.id.btn_daftar:
-                Intent daftar=new Intent(MainActivity.this,RegisterAct.class);
+                Intent daftar=new Intent(MainActivity.this, RegisterAct.class);
                 startActivity(daftar);
                 MainActivity.this.finish();
                 break;

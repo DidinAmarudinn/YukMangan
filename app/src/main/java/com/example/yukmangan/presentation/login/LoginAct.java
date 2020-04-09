@@ -1,4 +1,4 @@
-package com.example.yukmangan.activity;
+package com.example.yukmangan.presentation.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.yukmangan.DashboardAct;
+import com.example.yukmangan.presentation.DashboardAct;
 import com.example.yukmangan.R;
 import com.example.yukmangan.helper.PreferenceHelper;
 

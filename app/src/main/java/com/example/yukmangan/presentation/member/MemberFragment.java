@@ -1,4 +1,4 @@
-package com.example.yukmangan.fragment;
+package com.example.yukmangan.presentation.member;
 
 import android.os.Bundle;
 

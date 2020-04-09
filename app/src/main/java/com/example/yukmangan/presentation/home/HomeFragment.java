@@ -1,4 +1,4 @@
-package com.example.yukmangan.fragment;
+package com.example.yukmangan.presentation.home;
 
 import android.app.ProgressDialog;
 import android.graphics.Color;
@@ -13,23 +13,18 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.yukmangan.R;
-import com.example.yukmangan.model.IndoneisaModel;
+import com.example.yukmangan.network.model.IndoneisaModel;
 import com.example.yukmangan.viewmodel.IndonesiaViewModel;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Description;
-import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
-import com.github.mikephil.charting.utils.ColorTemplate;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 public class HomeFragment extends Fragment {
 

@@ -1,4 +1,4 @@
-package com.example.yukmangan.model;
+package com.example.yukmangan.network.model;
 
 import com.google.gson.annotations.SerializedName;
 

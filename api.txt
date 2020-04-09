@@ -1,0 +1,8 @@
+=== Api web Service ===
+1.api get all data donasi
+ => https://yukmangan.id/api/donasi_uang/get_data_donasi
+2 api get jumlah donatur 
+ => https://yukmangan.id/api/donasi_uang/get_jumlah_donatur
+3 update api get pendaftar by id bisa di aksess lewat url program otomatis akan get data sesuai inputan pada url
+  => GET contoh http://yukmangan.id/api/relawan/get_pendaftar_id?id=138
+  => POST untuk akses lewat android  berikut urlnya http://yukmangan.id/api/relawan/get_pendaftar_id

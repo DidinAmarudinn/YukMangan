@@ -1,4 +1,4 @@
-package com.example.yukmangan;
+package com.example.yukmangan.presentation;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,9 +7,11 @@ import androidx.fragment.app.Fragment;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.example.yukmangan.fragment.HomeFragment;
-import com.example.yukmangan.fragment.MemberFragment;
+import com.example.yukmangan.R;
+import com.example.yukmangan.presentation.home.HomeFragment;
+import com.example.yukmangan.presentation.member.MemberFragment;
 import com.example.yukmangan.helper.PreferenceHelper;
+import com.example.yukmangan.presentation.relawan.RelawanFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class DashboardAct extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
@@ -46,7 +48,8 @@ public class DashboardAct extends AppCompatActivity implements BottomNavigationV
                fragment = new MemberFragment();
                break;
            case R.id.account_menu:
-
+               //cek doang
+                fragment = new RelawanFragment();
                break;
     }
    return loadFragment(fragment);

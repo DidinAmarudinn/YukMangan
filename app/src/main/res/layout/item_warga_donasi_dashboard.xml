@@ -5,18 +5,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/iv_warga"
+    <com.github.florent37.shapeofview.shapes.CircleView
+        android:id="@+id/circle_container"
         android:layout_width="@dimen/_50sdp"
         android:layout_height="@dimen/_50sdp"
-        android:background="@color/text_red"
         android:layout_marginRight="@dimen/_13sdp"
         android:layout_marginTop="@dimen/_13sdp"
         android:layout_marginBottom="@dimen/_13sdp"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        />
+        android:layout_marginEnd="@dimen/_13sdp">
+        <ImageView
+            android:id="@+id/iv_warga"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:background="@color/text_red"
+            />
+
+
+    </com.github.florent37.shapeofview.shapes.CircleView>
 
     <TextView
         android:id="@+id/tv_name_warga"
@@ -27,19 +35,19 @@
         android:textSize="@dimen/_12sdp"
         android:textStyle="bold"
         android:layout_marginTop="@dimen/_8sdp"
-        android:layout_toRightOf="@+id/iv_warga"
-        android:layout_alignTop="@id/iv_warga"
-        android:layout_toEndOf="@+id/iv_warga"/>
+        android:layout_toRightOf="@+id/circle_container"
+        android:layout_alignTop="@id/circle_container"
+        android:layout_toEndOf="@+id/circle_container"/>
 
     <TextView
         android:id="@+id/tv_alamat_warga"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Bandung"
-        android:layout_toRightOf="@+id/iv_warga"
+        android:layout_toRightOf="@+id/circle_container"
         android:layout_below="@id/tv_name_warga"
-        android:layout_alignBottom="@id/iv_warga"
-        android:layout_toEndOf="@+id/iv_warga" />
+        android:layout_alignBottom="@id/circle_container"
+        android:layout_toEndOf="@+id/circle_container" />
 
     <Button
         android:id="@+id/btn_detail_warga"
