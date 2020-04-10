@@ -16,6 +16,7 @@
     <color name="recovered">#a494bb</color>
     <color name="positif">#54d8fe</color>
     <color name="deaths">#fe8373</color>
+    <color name="text_blue_dark">#00A1D3</color>
 
 
 </resources>
