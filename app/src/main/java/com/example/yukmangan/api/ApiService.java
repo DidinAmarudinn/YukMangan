@@ -1,5 +1,6 @@
 package com.example.yukmangan.api;
 
+import com.example.yukmangan.BuildConfig;
 import com.example.yukmangan.network.api.Api;
 
 import retrofit2.Retrofit;
@@ -18,4 +19,6 @@ public class ApiService {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
     }
+
+
 }

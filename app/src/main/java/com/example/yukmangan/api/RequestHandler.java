@@ -105,7 +105,6 @@ public class RequestHandler {
                 dataOutputStream.flush();
                 dataOutputStream.close();
 
-                
 
                 int responseCode = connection.getResponseCode();
 
@@ -210,11 +209,11 @@ public class RequestHandler {
         try {
             URL url = new URL(requestURL+id);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setReadTimeout(15000);
+            /*conn.setReadTimeout(15000);
             conn.setConnectTimeout(15000);
             conn.setRequestMethod("GET");
             conn.setDoInput(true);
-            conn.setDoOutput(true);
+            conn.setDoOutput(true);*/
             int responseCode = conn.getResponseCode();
             if (responseCode==HttpsURLConnection.HTTP_SERVER_ERROR){
                 Toast.makeText(context, "Tidak Terhubung Ke Jaringan", Toast.LENGTH_SHORT).show();

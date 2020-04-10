@@ -1,9 +1,7 @@
 package com.example.yukmangan.network.api;
 
 import com.example.yukmangan.BuildConfig;
-
 import java.util.concurrent.TimeUnit;
-
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;

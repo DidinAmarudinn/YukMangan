@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/frame_data"
-    tools:context=".presentation.home.MenuData">
+    tools:context=".activity.MenuData">
 
     <View
         android:id="@+id/view4"
