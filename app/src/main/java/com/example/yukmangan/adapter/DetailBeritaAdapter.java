@@ -1,5 +1,6 @@
 package com.example.yukmangan.adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.yukmangan.R;
 import com.example.yukmangan.network.model.BeritaModel;
+import com.example.yukmangan.presentation.home.DetailNews;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -37,7 +39,7 @@ public class DetailBeritaAdapter extends RecyclerView.Adapter<DetailBeritaAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-       final String url="http://yukmangan.id/api/artikel/"+list.get(position).getFilefoto();
+       final String url="https://yukmangan.id/dapurmangan/assets/upload/blog/artikel/"+list.get(position).getFilefoto();
         Glide.with(holder.itemView.getContext())
                .load(url)
                 .centerCrop()
@@ -47,7 +49,13 @@ public class DetailBeritaAdapter extends RecyclerView.Adapter<DetailBeritaAdapte
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent=new Intent(holder.itemView.getContext(), DetailNews.class);
+                intent.putExtra("title_artikel",list.get(position).getJudulArtikel());
+                intent.putExtra("isi_artikel",list.get(position).getIsiArtikel());
+                intent.putExtra("kategori",list.get(position).getIdTags());
+                final String url="https://yukmangan.id/dapurmangan/assets/upload/blog/artikel/";
+                intent.putExtra("image_artikel",url+list.get(position).getFilefoto());
+                holder.itemView.getContext().startActivity(intent);
             }
         });
     }

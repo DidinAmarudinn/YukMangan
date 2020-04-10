@@ -21,6 +21,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.sql.PreparedStatement;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -35,7 +37,12 @@ public class LoginAct extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        preferenceHelper=new PreferenceHelper(this);
+        preferenceHelper = new PreferenceHelper(this);
+        if (preferenceHelper.getSPSudahLogin()){
+            startActivity(new Intent(LoginAct.this, DashboardAct.class)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+            finish();
+        }
         setContentView(R.layout.activity_login);
         et_email=findViewById(R.id.etemail);
         et_password=findViewById(R.id.etpassword);
@@ -43,9 +50,9 @@ public class LoginAct extends AppCompatActivity {
         btn_masuk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               Intent intent=new Intent(LoginAct.this,DashboardAct.class);
-               startActivity(intent);
-                //loginUser();
+               //Intent intent=new Intent(LoginAct.this,DashboardAct.class);
+               //startActivity(intent);
+                loginUser();
             }
         });
         tv_register=findViewById(R.id.tv_register);
@@ -69,7 +76,6 @@ public class LoginAct extends AppCompatActivity {
         LoginInterface api = retrofit.create(LoginInterface.class);
 
         Call<String> call = api.getUserLogin(username,password);
-
         call.enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
@@ -80,6 +86,10 @@ public class LoginAct extends AppCompatActivity {
                         Log.e("onSuccess", response.body().toString());
                         String jsonresponse = response.body().toString();
                         parseLoginData(jsonresponse);
+                        Intent intent = new Intent(LoginAct.this,DashboardAct.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
+                        finish();
                     } else {
                         Log.e("onEmptyResponse", "Returned empty response");
                     }
@@ -94,15 +104,12 @@ public class LoginAct extends AppCompatActivity {
     }
 
     private void parseLoginData(String response){
+        preferenceHelper.saveSPBoolean(PreferenceHelper.SP_SUDAH_LOGIN,true);
         try {
             JSONObject jsonObject = new JSONObject(response);
             if (jsonObject.getString("status").equals("true")) {
                 Log.e("parseLoginData: ", jsonObject.getString("status"));
                 Toast.makeText(LoginAct.this, "Login Successfully!", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(LoginAct.this,DashboardAct.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-                this.finish();
                 saveInfo(response);
             }
         } catch (JSONException e) {
@@ -120,6 +127,9 @@ public class LoginAct extends AppCompatActivity {
                 JSONArray dataArray = jsonObject.getJSONArray("data");
                 for (int i = 0; i < dataArray.length(); i++) {
                     JSONObject dataobj = dataArray.getJSONObject(i);
+                    preferenceHelper.saveSPString(PreferenceHelper.SP_NAMA,dataobj.getString("nama_lengkap"));
+                    preferenceHelper.saveSPString(PreferenceHelper.SP_EMAIL,dataobj.getString("nama_lengkap"));
+                    preferenceHelper.saveSPString(PreferenceHelper.ID,dataobj.getString("id"));
                 }
             }
         } catch (JSONException e) {

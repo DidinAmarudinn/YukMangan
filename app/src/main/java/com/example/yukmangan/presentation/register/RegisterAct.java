@@ -141,6 +141,9 @@ public class RegisterAct extends AppCompatActivity {
                 JSONArray dataArray = jsonObject.getJSONArray("data");
                 for (int i = 0; i < dataArray.length(); i++) {
                     JSONObject dataobj = dataArray.getJSONObject(i);
+                    preferenceHelper.saveSPString(PreferenceHelper.SP_NAMA,dataobj.getString("nama_lengkap"));
+                    preferenceHelper.saveSPString(PreferenceHelper.SP_EMAIL,dataobj.getString("nama_lengkap"));
+                    preferenceHelper.saveSPString(PreferenceHelper.ID,dataobj.getString("id"));
                 }
             }
         } catch (JSONException e) {
