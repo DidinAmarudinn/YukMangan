@@ -371,6 +371,7 @@
                     android:layout_below="@id/btn_input_warga_darurat"
                     app:cardCornerRadius="@dimen/_6sdp"
                     app:cardElevation="1dp"
+                    android:layout_marginBottom="@dimen/_2sdp"
                     android:layout_marginTop="@dimen/_12sdp">
 
                     <RelativeLayout
