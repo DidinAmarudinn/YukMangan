@@ -14,9 +14,12 @@ import androidx.lifecycle.ViewModelProvider;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.yukmangan.R;
+import com.example.yukmangan.helper.PreferenceHelper;
 import com.example.yukmangan.network.model.IndoneisaModel;
 import com.example.yukmangan.activity.MenuData;
 import com.example.yukmangan.viewmodel.IndonesiaViewModel;
@@ -33,7 +36,9 @@ import java.util.List;
 
 public class HomeFragment extends Fragment implements View.OnClickListener{
     private ProgressDialog mProgressApp;
-    LinearLayout menu_data;
+    private Button btn_selengkapnya;
+    private PreferenceHelper preferenceHelper;
+    LinearLayout menu_data,menu_news;
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -47,12 +52,15 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         mProgressApp = new ProgressDialog(getActivity());
         SimpleDateFormat simpleDateFormat=new SimpleDateFormat("dd-MM-yyyy");
         String currentDate=simpleDateFormat.format(new Date());
+        preferenceHelper=new PreferenceHelper(getContext());
         mProgressApp.setTitle("Please Wait");
         mProgressApp.setCancelable(true);
         mProgressApp.setMessage("Show Data");
         menu_data=view.findViewById(R.id.menu_data);
+        menu_news=view.findViewById(R.id.menu_news);
         mProgressApp.show();
         menu_data.setOnClickListener(this);
+        menu_news.setOnClickListener(this);
         final PieChart pieChart=view.findViewById(R.id.piechart);
         IndonesiaViewModel viewModel=new ViewModelProvider(this,new ViewModelProvider.NewInstanceFactory()).
                 get(IndonesiaViewModel.class);
@@ -92,6 +100,16 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
             case R.id.menu_data:
                 Intent menudata=new Intent(getActivity(), MenuData.class);
                 startActivity(menudata);
+                break;
+            case R.id.btn_selengkapnya:
+                preferenceHelper.saveSPBoolean(PreferenceHelper.SP_SUDAH_LOGIN,false);
+                Intent intent = new Intent(getActivity(),MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                break;
+            case R.id.menu_news:
+                Intent menunews=new Intent(getActivity(),NewsAct.class);
+                startActivity(menunews);
                 break;
         }
     }

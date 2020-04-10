@@ -14,7 +14,25 @@ public interface RegisterInterface {
             @Field("nama_lengkap") String name,
             @Field("email") String email,
             @Field("alamat") String alamat,
-            @Field("password") String password
+            @Field("password") String password,
+            @Field("id_provinsi") String id_provinsi,
+            @Field("id_kabupaten") String id_kabupaten,
+            @Field("id_kecamatan") String id_kecamatan,
+            @Field("id_desa") String id_desa,
+            @Field("id_pekerjaan") String id_pekerjaan,
+            @Field("id_jabatan") String id_jabatan,
+            @Field("id_pendaftar_skill") String id_pendaftar_skill,
+            @Field("no_wa") String no_wa,
+            @Field("rw") String rw,
+            @Field("rt") String rt,
+            @Field("tgl_daftar") String tgl_daftar,
+            @Field("no_ktp") String no_ktp,
+            @Field("siap_relawan") String siap_relawan,
+            @Field("tempat_lahir") String tempat_lahir,
+            @Field("tgl_lahir") String tgl_lahir,
+            @Field("jk") String jk
+
+
 
     ) ;
 
