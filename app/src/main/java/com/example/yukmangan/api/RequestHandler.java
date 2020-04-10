@@ -105,20 +105,7 @@ public class RequestHandler {
                 dataOutputStream.flush();
                 dataOutputStream.close();
 
-                /*serverResponseCode = connection.getResponseCode();
-                String serverResponseMessage = connection.getResponseMessage();
-                Log.i("TAG", "Server Response is: " + serverResponseMessage + ": " + serverResponseCode);
-
-                //response code of 200 indicates the server status OK
-                if(serverResponseCode == 200){
-                    Log.i("TAG", "File Upload completed.\\n\\n You can see the uploaded file here:: " );
-                    *//*runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            tvFileName.setText("File Upload completed.\n\n You can see the uploaded file here: \n\n" + "http://coderefer.com/extras/uploads/"+ fileName);
-                        }
-                    });*//*
-                }*/
+                
 
                 int responseCode = connection.getResponseCode();
 
@@ -223,11 +210,11 @@ public class RequestHandler {
         try {
             URL url = new URL(requestURL+id);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            /*conn.setReadTimeout(15000);
+            conn.setReadTimeout(15000);
             conn.setConnectTimeout(15000);
             conn.setRequestMethod("GET");
             conn.setDoInput(true);
-            conn.setDoOutput(true);*/
+            conn.setDoOutput(true);
             int responseCode = conn.getResponseCode();
             if (responseCode==HttpsURLConnection.HTTP_SERVER_ERROR){
                 Toast.makeText(context, "Tidak Terhubung Ke Jaringan", Toast.LENGTH_SHORT).show();
