@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.github.florent37.shapeofview.shapes.CircleView
+        android:id="@+id/cv_image_input"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@id/crd_button"
+        android:layout_alignBottom="@id/crd_button"
+        android:layout_margin="@dimen/_8sdp"
+        >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/icon_help"
+            android:background="@color/white"/>
+    </com.github.florent37.shapeofview.shapes.CircleView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/crd_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:cardCornerRadius="@dimen/_10sdp"
+        android:layout_toRightOf="@id/cv_image_input"
+        android:layout_alignParentTop="true"
+        android:elevation="1dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <ImageView
+                android:background="@color/text_red"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_100sdp"
+                android:text="Input Penyaluran"
+                android:textColor="@color/white"
+                android:layout_gravity="center_vertical"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_marginRight="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_16sdp"
+                android:layout_marginLeft="@dimen/_8sdp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_tanggal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="- Tanggal : 04/04/2020"
+                    android:layout_marginBottom="@dimen/_8sdp"/>
+                <TextView
+                    android:id="@+id/tv_nama_relawan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="- Relawan : Nama Relawan"
+                    android:layout_marginBottom="@dimen/_8sdp"/>
+
+                <TextView
+                    android:id="@+id/tv_uang"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="- Uang : Rp 50.000"
+                    android:layout_marginBottom="@dimen/_8sdp"/>
+
+                <TextView
+                    android:id="@+id/tv_beras"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="- Beras : 2 Kg"
+                    android:layout_marginBottom="@dimen/_8sdp"/>
+
+                <TextView
+                    android:id="@+id/tv_bahan_makanan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="- Bahan Makanan : Minyak Goreng (1 liter), Telor (1 Kg) "
+                    android:layout_marginBottom="@dimen/_8sdp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>

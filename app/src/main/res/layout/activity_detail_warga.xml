@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.warga.DetailWargaActivity"
+    android:background="#F4F4F4">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_110sdp"
+                android:background="@drawable/bgview"
+                android:src="@drawable/group_52"
+                android:scaleType="centerCrop" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/_10sdp">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar_warga_darurat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"
+                    android:paddingRight="@dimen/_14sdp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:padding="@dimen/_2sdp"
+                            android:id="@+id/btn_back"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:layout_weight="4"
+                            app:srcCompat="@drawable/ic_arrow_back_white"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="Warga Darurat"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_white"
+                            android:textAlignment="textStart"
+                            android:gravity="center"
+                            tools:ignore="RtlCompat"
+                            android:paddingLeft="@dimen/_8sdp"/>
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="4"
+                            android:src="@drawable/logo"/>
+
+                    </LinearLayout>
+
+                </androidx.appcompat.widget.Toolbar>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/crd_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/toolbar_warga_darurat"
+                    app:cardBackgroundColor="@color/white"
+                    android:padding="8dp"
+                    app:cardCornerRadius="10dp"
+                    android:elevation="4dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/_8sdp">
+
+                        <com.github.florent37.shapeofview.shapes.CircleView
+                            android:id="@+id/cv_image"
+                            android:layout_width="@dimen/_50sdp"
+                            android:layout_height="@dimen/_50sdp"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentTop="true">
+                            <ImageView
+                                android:id="@+id/iv_warga_darurat"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/colorPrimary"/>
+                        </com.github.florent37.shapeofview.shapes.CircleView>
+
+                        <LinearLayout
+                            android:id="@+id/ll_headr"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@id/cv_image"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentRight="true"
+                            android:orientation="vertical"
+                            android:paddingRight="@dimen/_2sdp"
+                            android:paddingLeft="@dimen/_8sdp"
+                            android:paddingBottom="@dimen/_8sdp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Nama Warga"
+                                android:textColor="@color/text_black"
+                                android:textSize="20sp"
+                                android:textStyle="bold"
+                                android:layout_marginBottom="@dimen/_16sdp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=" Warga Aman "
+                                android:textColor="@color/white"
+                                android:background="#8CC152"
+                                android:layout_marginBottom="@dimen/_4sdp"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Alamat"
+                                android:textColor="@color/text_blue"
+                                android:layout_marginBottom="@dimen/_4sdp"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Pekerjaan"
+                                android:textColor="@color/text_blue"
+                                android:layout_marginBottom="@dimen/_4sdp"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Jumlah Tanggungan"
+                                android:textColor="@color/text_blue"
+                                android:layout_marginBottom="@dimen/_4sdp"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Telah disurvei dan diverefikasi oleh relawan .... pada tanggal .... "
+
+                                android:layout_marginBottom="@dimen/_4sdp"/>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/cv_image"
+                            android:layout_alignParentLeft="true"
+                            android:layout_toLeftOf="@id/ll_headr"
+                            android:layout_marginTop="8dp"
+                            android:orientation="horizontal"
+                            android:gravity="center">
+                            <ImageView
+                                android:layout_width="@dimen/_10sdp"
+                                android:layout_height="@dimen/_10sdp"
+                                app:srcCompat="@drawable/ic_check_circle_blue"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Member"
+                                android:gravity="center"
+                                android:textSize="11sp"
+                                android:layout_marginLeft="2dp"
+                                android:textColor="@color/text_blue_dark"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/ll_headr"
+                            android:layout_marginTop="16dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentLeft="true"
+                            android:orientation="horizontal">
+
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_margin="8dp"
+                                android:text="Tandai Darurat"
+                                android:textColor="@color/white"
+                                android:background="@drawable/bg_button_red_blood"/>
+
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_margin="8dp"
+                                android:text="Chat WA"
+                                android:textColor="@color/white"
+                                android:background="@drawable/bg_button_green"/>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/crd_history"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_below="@id/crd_header"
+                    android:background="@color/white"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    app:cardCornerRadius="@dimen/_10sdp"
+                    android:elevation="1dp">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/_8sdp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Berikut History Pengiriman"
+                            android:layout_gravity="center_vertical"/>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/crd_history"
+                    android:background="#9F9F9F"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="@dimen/_19sdp"
+                    android:layout_alignParentStart="true" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_history_donasi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/crd_history"
+                    tools:itemCount="1"
+                    tools:listitem="@layout/item_warga_darurat"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_marginBottom="@dimen/_16sdp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentRight="true"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rv_history_donasi">
+
+                    <com.github.florent37.shapeofview.shapes.CircleView
+                        android:id="@+id/cv_image_input"
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignTop="@id/crd_button"
+                        android:layout_alignBottom="@id/crd_button"
+                        android:layout_margin="@dimen/_8sdp"
+                        >
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/icon_help"
+                            android:background="@color/white"/>
+                    </com.github.florent37.shapeofview.shapes.CircleView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/crd_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        app:cardCornerRadius="@dimen/_10sdp"
+                        android:layout_toRightOf="@id/cv_image_input"
+                        android:layout_alignParentTop="true"
+                        android:elevation="1dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="@dimen/_8sdp"
+                            android:paddingRight="@dimen/_16sdp"
+                            android:paddingLeft="@dimen/_16sdp"
+                            android:paddingTop="@dimen/_8sdp"
+                            android:paddingBottom="@dimen/_8sdp">
+
+                            <Button
+                                android:background="@drawable/bg_button_blue"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_28sdp"
+                                android:text="Input Penyaluran"
+                                android:textColor="@color/white"
+                                android:layout_gravity="center_vertical"
+                                />
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
