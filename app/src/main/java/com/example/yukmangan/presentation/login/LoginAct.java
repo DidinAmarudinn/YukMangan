@@ -77,11 +77,11 @@ public class LoginAct extends AppCompatActivity {
                 //Toast.makeText()
                 if (response.isSuccessful()) {
                     if (response.body() != null) {
-                        Log.i("onSuccess", response.body().toString());
+                        Log.e("onSuccess", response.body().toString());
                         String jsonresponse = response.body().toString();
                         parseLoginData(jsonresponse);
                     } else {
-                        Log.i("onEmptyResponse", "Returned empty response");
+                        Log.e("onEmptyResponse", "Returned empty response");
                     }
                 }
             }
@@ -97,12 +97,13 @@ public class LoginAct extends AppCompatActivity {
         try {
             JSONObject jsonObject = new JSONObject(response);
             if (jsonObject.getString("status").equals("true")) {
-                saveInfo(response);
+                Log.e("parseLoginData: ", jsonObject.getString("status"));
                 Toast.makeText(LoginAct.this, "Login Successfully!", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(LoginAct.this,DashboardAct.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 this.finish();
+                saveInfo(response);
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -111,14 +112,13 @@ public class LoginAct extends AppCompatActivity {
     }
 
     private void saveInfo(String response){
-
         preferenceHelper.saveSPBoolean(PreferenceHelper.SP_SUDAH_LOGIN,true);
         try {
             JSONObject jsonObject = new JSONObject(response);
             if (jsonObject.getString("status").equals("true")) {
+                Log.e("parseLoginData: ", jsonObject.getString("status"));
                 JSONArray dataArray = jsonObject.getJSONArray("data");
                 for (int i = 0; i < dataArray.length(); i++) {
-
                     JSONObject dataobj = dataArray.getJSONObject(i);
                 }
             }

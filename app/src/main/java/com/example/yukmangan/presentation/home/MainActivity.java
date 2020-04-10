@@ -19,6 +19,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         preferenceHelper=new PreferenceHelper(this);
+        if (preferenceHelper.getSPSudahLogin()){
+            startActivity(new Intent(MainActivity.this, DashboardAct.class)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+            finish();
+        }
         setContentView(R.layout.activity_main);
         btn_daftar=findViewById(R.id.btn_daftar);
         btn_masuk=findViewById(R.id.btn_masuk);
