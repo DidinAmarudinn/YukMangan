@@ -1,6 +1,8 @@
 package com.example.yukmangan.network.api;
 
-import com.example.yukmangan.BuildConfig;
+import androidx.core.os.BuildCompat;
+
+import com.intuit.sdp.BuildConfig;
 
 import java.util.concurrent.TimeUnit;
 
@@ -23,7 +25,7 @@ public class ApiServiceAll {
         OkHttpClient client = builder.build();
 
         return new Retrofit.Builder()
-                .baseUrl(BuildConfig.BASE_URL)
+                .baseUrl(Api.BASE_URL1)
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();

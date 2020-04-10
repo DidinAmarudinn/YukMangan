@@ -1,7 +1,10 @@
 package com.example.yukmangan.network.api;
 
+import com.example.yukmangan.network.model.BeritaModel;
 import com.example.yukmangan.network.model.IndoneisaModel;
 import com.example.yukmangan.network.model.relawan.Relawan;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -15,4 +18,6 @@ public interface ApiEndpoint {
     Call<Relawan> getDataRelawanById(
             @Query("id") String id_relawan
     );
+    @GET(Api.END_BERITA)
+    Call<List<BeritaModel>> getListBerita();
 }

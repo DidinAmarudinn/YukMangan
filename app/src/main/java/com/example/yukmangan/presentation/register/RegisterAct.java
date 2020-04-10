@@ -1,4 +1,4 @@
-// Updated upstream:app/src/main/java/com/example/yukmangan/presentation/register/RegisterAct.java
+ // Updated upstream:app/src/main/java/com/example/yukmangan/presentation/register/RegisterAct.java
 package com.example.yukmangan.presentation.register;;
 // Stashed changes:app/src/main/java/com/example/yukmangan/activity/RegisterAct.java
 
@@ -70,12 +70,30 @@ public class RegisterAct extends AppCompatActivity {
         final String email = et_email.getText().toString();
         final String alamat = et_alamat.getText().toString();
         final String password = et_password.getText().toString();
+        final String id_provinsi="452";
+        final String id_kabupaten="452";
+        final String id_kecamatan="452";
+        final String id_desa="452";
+        final String id_pekerjaan="4";
+        final String id_jabatan="4";
+        final String id_pendaftar_skill="4";
+        final String no_wa="087";
+        final String rw="1";
+        final String rt="42";
+        final String tgl_daftar="2020-10-10";
+        final String siap_relawan="Y";
+        final String no_ktp="452";
+        final String tempat_lahir="test";
+        final String tgl_lahir="2020-04-10";
+        final String jk="L";
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(RegisterInterface.REGISTRASI_URL)
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .build();
         RegisterInterface api = retrofit.create(RegisterInterface.class);
-        Call<String> call = api.getUserRegister(name,email,alamat,password);
+        Call<String> call = api.getUserRegister(name,email,alamat,password,id_provinsi,id_kabupaten,id_kecamatan,id_desa,id_pekerjaan,id_jabatan,
+                id_pendaftar_skill,no_wa,rw,rt,tgl_daftar,no_ktp,siap_relawan,tempat_lahir,tgl_lahir,jk);
         call.enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
