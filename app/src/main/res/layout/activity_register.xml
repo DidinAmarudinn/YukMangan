@@ -6,13 +6,13 @@
     android:layout_height="match_parent"
     tools:context="com.example.yukmangan.presentation.register.RegisterAct">
     <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_180sdp"
-        android:background="@drawable/bgview"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        />
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_180sdp"
+    android:background="@drawable/bgview"
+    android:layout_alignParentTop="true"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentRight="true"
+    />
     <ImageView
         android:layout_width="@dimen/_200sdp"
         android:layout_height="@dimen/_100sdp"
@@ -95,66 +95,66 @@
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent" />
             </com.google.android.material.textfield.TextInputLayout>   <com.google.android.material.textfield.TextInputLayout
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="@dimen/_12sdp"
-                android:layout_marginLeft="@dimen/_12sdp"
-                >
-                <EditText
-                    android:textSize="@dimen/_14sdp"
-                    android:lineSpacingExtra="@dimen/_1sdp"
-                    android:hint="Nama"
-                    android:inputType="text"
-                    android:textColor="@android:color/black"
-                    android:fontFamily="@font/robotolight"
-                    android:maxLines="1"
-                    android:id="@+id/et_nama"
-                    android:backgroundTint="@color/colorPrimary"
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent" />
-            </com.google.android.material.textfield.TextInputLayout>   <com.google.android.material.textfield.TextInputLayout
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="@dimen/_12sdp"
-                android:layout_marginLeft="@dimen/_12sdp"
-                >
-                <EditText
-                    android:textSize="@dimen/_14sdp"
-                    android:lineSpacingExtra="@dimen/_1sdp"
-                    android:hint="Alamat"
-                    android:inputType="text"
-                    android:textColor="@android:color/black"
-                    android:fontFamily="@font/robotolight"
-                    android:maxLines="1"
-                    android:id="@+id/et_alamat"
-                    android:backgroundTint="@color/colorPrimary"
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent" />
-            </com.google.android.material.textfield.TextInputLayout>
-            <com.google.android.material.textfield.TextInputLayout
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/_12sdp"
             android:layout_marginLeft="@dimen/_12sdp"
-            android:layout_marginBottom="@dimen/_24sdp"
-            app:passwordToggleEnabled="true"
             >
             <EditText
                 android:textSize="@dimen/_14sdp"
                 android:lineSpacingExtra="@dimen/_1sdp"
-                android:hint="Password"
-                android:inputType="textPassword"
+                android:hint="Nama"
+                android:inputType="text"
                 android:textColor="@android:color/black"
                 android:fontFamily="@font/robotolight"
                 android:maxLines="1"
-                android:id="@+id/et_password"
+                android:id="@+id/et_nama"
+                android:backgroundTint="@color/colorPrimary"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent" />
+        </com.google.android.material.textfield.TextInputLayout>   <com.google.android.material.textfield.TextInputLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/_12sdp"
+            android:layout_marginLeft="@dimen/_12sdp"
+            >
+            <EditText
+                android:textSize="@dimen/_14sdp"
+                android:lineSpacingExtra="@dimen/_1sdp"
+                android:hint="Alamat"
+                android:inputType="text"
+                android:textColor="@android:color/black"
+                android:fontFamily="@font/robotolight"
+                android:maxLines="1"
+                android:id="@+id/et_alamat"
                 android:backgroundTint="@color/colorPrimary"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent" />
         </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/_12sdp"
+                android:layout_marginLeft="@dimen/_12sdp"
+                android:layout_marginBottom="@dimen/_24sdp"
+                app:passwordToggleEnabled="true"
+                >
+                <EditText
+                    android:textSize="@dimen/_14sdp"
+                    android:lineSpacingExtra="@dimen/_1sdp"
+                    android:hint="Password"
+                    android:inputType="textPassword"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="@font/robotolight"
+                    android:maxLines="1"
+                    android:id="@+id/et_password"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:layout_width="match_parent"

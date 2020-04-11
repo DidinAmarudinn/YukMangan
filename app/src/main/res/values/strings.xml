@@ -2,7 +2,18 @@
     <string name="app_name">YukMangan</string>
     <string name="masuk">MASUK</string>
     <string name="daftar">DAFTAR</string>
-
+    <string name="Nama">Pakde</string>
+    <string name="Donasi">Donasi</string>
+    <string name="Jumlah">100,000</string>
+    <string name="Email">Email Pakde@gmail.com</string>
+    <string name="NoHp">No Hp 081279345676</string>
+    <string name="Alamat">Alamat Jakarta Selatan</string>
+    <string name="tgl_gabung">Tanggal Daftar 12-04-2020</string>
+    <string name="Update">Lengkapi Data Anda</string>
+    <string name="Logout">Logout</string>
+    <string name="sts">Status</string>
+    <string name="member">Member</string>
+    <string name="lkp">Lengkapi Data Diri Anda</string>
     <string name="home">Home</string>
     <string name="dashboard">Dashboard</string>
     <string name="chat">Chat</string>

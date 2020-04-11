@@ -45,4 +45,23 @@ public class PreferenceHelper {
         return sp.getBoolean(SP_SUDAH_LOGIN, false);
     }
 
+    /*public void logoutUser() {
+        // Clearing all data from Shared Preferences
+        boolean look = false;
+        if (this.checkFirstLook()) {
+            look = true;
+        }
+        String iduser = this.getIduser();
+        String username = this.getNama();
+
+        spEditor.clear();
+        spEditor.commit();
+        this.setIduser(iduser);
+        this.setNama(username);;
+
+        if (look) {
+            this.setFirstlook();
+        }
+    }*/
+
 }

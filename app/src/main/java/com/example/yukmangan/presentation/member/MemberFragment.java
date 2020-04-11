@@ -47,12 +47,10 @@ public class MemberFragment extends Fragment {
                 super.onPreExecute();
                 Log.d("","Loading.....");
             }
-
             @Override
             protected String doInBackground(Void... voids) {
                 return new RequestHandler().sendGetRequest(WebServiceApi.URL_SALDO);
             }
-
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);

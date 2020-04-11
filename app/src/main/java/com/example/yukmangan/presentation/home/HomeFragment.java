@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -39,6 +40,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     private Button btn_selengkapnya;
     private PreferenceHelper preferenceHelper;
     LinearLayout menu_data,menu_news;
+    ImageView ic_setting;
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -53,14 +55,17 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         SimpleDateFormat simpleDateFormat=new SimpleDateFormat("dd-MM-yyyy");
         String currentDate=simpleDateFormat.format(new Date());
         preferenceHelper=new PreferenceHelper(getContext());
+
         mProgressApp.setTitle("Please Wait");
         mProgressApp.setCancelable(true);
         mProgressApp.setMessage("Show Data");
         menu_data=view.findViewById(R.id.menu_data);
         menu_news=view.findViewById(R.id.menu_news);
+        ic_setting = view.findViewById(R.id.ic_setting);
         mProgressApp.show();
         menu_data.setOnClickListener(this);
         menu_news.setOnClickListener(this);
+        ic_setting.setOnClickListener(this);
         final PieChart pieChart=view.findViewById(R.id.piechart);
         IndonesiaViewModel viewModel=new ViewModelProvider(this,new ViewModelProvider.NewInstanceFactory()).
                 get(IndonesiaViewModel.class);
@@ -110,6 +115,10 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
             case R.id.menu_news:
                 Intent menunews=new Intent(getActivity(),NewsAct.class);
                 startActivity(menunews);
+                break;
+            case R.id.ic_setting:
+                Intent act=new Intent(getActivity(),Profile.class);
+                startActivity(act);
                 break;
         }
     }

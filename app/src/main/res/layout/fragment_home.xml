@@ -74,6 +74,7 @@
                 tools:ignore="VectorDrawableCompat" />
 
             <ImageView
+                android:id="@+id/ic_setting"
                 android:layout_width="@dimen/_20sdp"
                 android:layout_height="@dimen/_20sdp"
                 android:layout_marginLeft="@dimen/_12sdp"

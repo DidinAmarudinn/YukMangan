@@ -2,10 +2,9 @@
 package com.example.yukmangan.network.model.relawan;
 
 import java.util.List;
-import javax.annotation.Generated;
+
 import com.google.gson.annotations.Expose;
 
-@Generated("net.hexar.json2pojo")
 @SuppressWarnings("unused")
 public class Relawan {
 

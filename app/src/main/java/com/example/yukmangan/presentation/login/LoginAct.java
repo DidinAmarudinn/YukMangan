@@ -45,7 +45,7 @@ public class LoginAct extends AppCompatActivity {
             public void onClick(View v) {
                Intent intent=new Intent(LoginAct.this,DashboardAct.class);
                startActivity(intent);
-                //loginUser();
+                loginUser();
             }
         });
         tv_register=findViewById(R.id.tv_register);
