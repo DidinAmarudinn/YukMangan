@@ -1,9 +1,12 @@
 package com.example.yukmangan.presentation.relawan;
 
+import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -11,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.yukmangan.R;
 import com.example.yukmangan.network.model.donatur.Datum;
+import com.example.yukmangan.presentation.warga.DetailWargaActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,9 +22,11 @@ import java.util.List;
 public class DonaturRelawanAdapter extends RecyclerView.Adapter<DonaturRelawanAdapter.DonaturViewHolder> {
     private List<Datum> list;
     private final int limit = 10;
+    private Context context;
 
-    public DonaturRelawanAdapter(List<Datum> list) {
+    public DonaturRelawanAdapter(List<Datum> list, Context context) {
         this.list = list;
+        this.context = context;
     }
 
     @NonNull
@@ -36,6 +42,13 @@ public class DonaturRelawanAdapter extends RecyclerView.Adapter<DonaturRelawanAd
         Log.e("CEK_POSITION",list.get(position).getNamaLengkap().toString());
         holder.nama.setText(list.get(position).getNamaLengkap().toString());
         holder.alamat.setText("Rp. "+list.get(position).getJumlahDonasi().toString());
+        holder.btnWargaDaruratDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(context, DetailWargaActivity.class);
+                context.startActivity(i);
+            }
+        });
 
     }
 
@@ -52,6 +65,7 @@ public class DonaturRelawanAdapter extends RecyclerView.Adapter<DonaturRelawanAd
 
     public class DonaturViewHolder extends RecyclerView.ViewHolder {
         TextView nama, alamat;
+        Button btnWargaDaruratDetail;
 
         public DonaturViewHolder(@NonNull View itemView) {
             super(itemView);
