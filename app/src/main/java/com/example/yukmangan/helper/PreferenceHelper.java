@@ -8,6 +8,7 @@ public class PreferenceHelper {
     public static final String SP_LOGIN = "spLogin";
     public static final String SP_NAMA = "spNama";
     public static final String SP_EMAIL = "spEmail";
+    public static final String ID="ID";
     public static final String SP_SUDAH_LOGIN = "spSudahLogin";
 
     SharedPreferences sp;
@@ -40,6 +41,8 @@ public class PreferenceHelper {
     public String getSPEmail(){
         return sp.getString(SP_EMAIL, "");
     }
+
+    public String getId(){return sp.getString(ID,"");}
 
     public Boolean getSPSudahLogin(){
         return sp.getBoolean(SP_SUDAH_LOGIN, false);

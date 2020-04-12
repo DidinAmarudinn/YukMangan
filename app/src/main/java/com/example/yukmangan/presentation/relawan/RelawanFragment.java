@@ -13,7 +13,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.yukmangan.R;
+import com.example.yukmangan.network.model.relawan.Datum;
 import com.example.yukmangan.network.model.relawan.Relawan;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.

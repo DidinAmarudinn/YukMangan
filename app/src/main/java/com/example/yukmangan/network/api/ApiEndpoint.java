@@ -2,6 +2,7 @@ package com.example.yukmangan.network.api;
 
 import com.example.yukmangan.network.model.BeritaModel;
 import com.example.yukmangan.network.model.IndoneisaModel;
+import com.example.yukmangan.network.model.donatur.Donatur;
 import com.example.yukmangan.network.model.relawan.Relawan;
 
 import java.util.List;
@@ -18,6 +19,10 @@ public interface ApiEndpoint {
     Call<Relawan> getDataRelawanById(
             @Query("id") String id_relawan
     );
+
+    @GET(Api.GET_DONATUR)
+    Call<Donatur> getDataDonatur();
+
     @GET(Api.END_BERITA)
     Call<List<BeritaModel>> getListBerita();
 }
