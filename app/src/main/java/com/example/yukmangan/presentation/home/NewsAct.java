@@ -39,6 +39,8 @@ public class NewsAct extends AppCompatActivity {
         BeritaViewModel viewModel=new ViewModelProvider(this,
                 new ViewModelProvider.NewInstanceFactory()).get(BeritaViewModel.class);
         viewModel.setDataBerita();
+        progressDialog.setTitle("Berita");
+        progressDialog.setMessage("Please Wait");
         progressDialog.show();
         viewModel.setDataBerita();
         viewModel.getBeritaData().observe(this, new Observer<ArrayList<BeritaModel>>() {

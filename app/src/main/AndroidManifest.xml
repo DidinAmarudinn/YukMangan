@@ -13,6 +13,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".presentation.home.DetailNews"></activity>
         <activity android:name=".presentation.home.NewsAct" />
+        <activity android:name=".activity.MenuData"/>
         <activity android:name=".presentation.home.DashboardAct" />
         <activity android:name=".presentation.login.LoginAct" />
         <activity android:name=".presentation.register.RegisterAct" />

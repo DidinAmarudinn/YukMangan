@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         preferenceHelper=new PreferenceHelper(this);
-        if (preferenceHelper.getSPSudahLogin()){
+        if (preferenceHelper.getIsLogin()){
             startActivity(new Intent(MainActivity.this, DashboardAct.class)
                     .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
             finish();

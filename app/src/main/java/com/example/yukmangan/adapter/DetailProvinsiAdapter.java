@@ -1,6 +1,6 @@
 package com.example.yukmangan.adapter;
 
-import android.content.Context;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,13 +22,13 @@ public class DetailProvinsiAdapter extends RecyclerView.Adapter<DetailProvinsiAd
     }
 
     public void setProvinsiModel(ArrayList<ProvinsiModel> items) {
-       if (list !=null){
-           if (list.size()>0){
-               list.clear();
-           }
-           list.addAll(items);
-       }
-       notifyDataSetChanged();
+        if (list !=null){
+            if (list.size()>0){
+                list.clear();
+            }
+            list.addAll(items);
+        }
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -40,10 +40,10 @@ public class DetailProvinsiAdapter extends RecyclerView.Adapter<DetailProvinsiAd
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-            holder.tv_provinsi.setText(list.get(position).getAttributes().getProvinsi());
-            holder.tv_Confirmed.setText(list.get(position).getAttributes().getKasus_Posi());
-            holder.tv_Recovered.setText(list.get(position).getAttributes().getKasus_Semb());
-            holder.tv_Deaths.setText(list.get(position).getAttributes().getKasus_Meni());
+        holder.tv_provinsi.setText(list.get(position).getAttributes().getProvinsi());
+        holder.tv_Confirmed.setText(list.get(position).getAttributes().getKasus_Posi());
+        holder.tv_Recovered.setText(list.get(position).getAttributes().getKasus_Semb());
+        holder.tv_Deaths.setText(list.get(position).getAttributes().getKasus_Meni());
     }
 
     @Override

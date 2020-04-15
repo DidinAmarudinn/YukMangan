@@ -11,16 +11,24 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.yukmangan.api.ApiService;
+import com.example.yukmangan.network.api.ApiEndpoint;
+import com.example.yukmangan.network.api.ApiServiceAll;
 import com.example.yukmangan.presentation.home.DashboardAct;
 import com.example.yukmangan.R;
 import com.example.yukmangan.apiInterface.LoginInterface;
 import com.example.yukmangan.helper.PreferenceHelper;
 import com.example.yukmangan.presentation.register.RegisterAct;
+import com.google.gson.JsonObject;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
+import java.sql.PreparedStatement;
+
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -36,6 +44,12 @@ public class LoginAct extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         preferenceHelper=new PreferenceHelper(this);
+        preferenceHelper = new PreferenceHelper(this);
+        if (preferenceHelper.getIsLogin()){
+            startActivity(new Intent(LoginAct.this, DashboardAct.class)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+            finish();
+        }
         setContentView(R.layout.activity_login);
         et_email=findViewById(R.id.etemail);
         et_password=findViewById(R.id.etpassword);
@@ -59,71 +73,59 @@ public class LoginAct extends AppCompatActivity {
 
     }
     private void loginUser() {
-        final String username = et_email.getText().toString().trim();
+        final String email = et_email.getText().toString().trim();
         final String password = et_password.getText().toString().trim();
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(LoginInterface.URL_LOGIN)
-                .addConverterFactory(ScalarsConverterFactory.create())
-                .build();
-
-        LoginInterface api = retrofit.create(LoginInterface.class);
-
-        Call<String> call = api.getUserLogin(username,password);
-
-        call.enqueue(new Callback<String>() {
+        Retrofit retrofit= ApiServiceAll.getRetrofitService();
+        ApiEndpoint apiEndpoint=retrofit.create(ApiEndpoint.class);
+        Call<ResponseBody> call=apiEndpoint.getUserLogin(email,password);
+        call.enqueue(new Callback<ResponseBody>() {
             @Override
-            public void onResponse(Call<String> call, Response<String> response) {
-                Log.i("Responsestring", response.body().toString());
-                //Toast.makeText()
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 if (response.isSuccessful()) {
-                    if (response.body() != null) {
-                        Log.e("onSuccess", response.body().toString());
-                        String jsonresponse = response.body().toString();
-                        parseLoginData(jsonresponse);
-                    } else {
-                        Log.e("onEmptyResponse", "Returned empty response");
+                    try {
+                        assert response.body() != null;
+                        JSONObject jsonObject = new JSONObject(response.body().string());
+                        if (jsonObject.get("status ").equals("true")) {
+                            Log.i("If Status", "berhasil");
+                            Intent intent = new Intent(LoginAct.this, DashboardAct.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivity(intent);
+                            preferenceHelper.putIsLogin(true);
+                            String id = jsonObject.getJSONObject("data").get("id").toString();
+                            String nama = jsonObject.getJSONObject("data").get("nama_lengkap").toString();
+                            String alamat = jsonObject.getJSONObject("data").get("alamat").toString();
+                            String email = jsonObject.getJSONObject("data").get("email").toString();
+                            String jk = jsonObject.getJSONObject("data").get("jk").toString();
+                            //String nama=jsonObject.getJSONObject("id").toString();
+                            //String id=jsonObject.getJSONObject("data").getJSONObject("id").toString();
+                            preferenceHelper.putName(nama);
+                            preferenceHelper.putId(id);
+                            preferenceHelper.putEmail(email);
+                            preferenceHelper.putAlamat(alamat);
+                            preferenceHelper.putJk(jk);
+                            Log.d("id", preferenceHelper.getID());
+                            Log.d("nama", preferenceHelper.getName());
+                            Log.d("email", preferenceHelper.getEMAIL());
+                            Log.d("jk", preferenceHelper.getJk());
+                            Log.d("alamat", preferenceHelper.getAlamat());
+                            //preferenceHelper.putHobby(id);
+
+                        } else if (jsonObject.get("Status  ").toString().equals("false")) {
+                            Toast.makeText(LoginAct.this, jsonObject.getJSONObject("data").toString(), Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (JSONException | IOException e) {
+                        e.printStackTrace();
                     }
                 }
             }
 
             @Override
-            public void onFailure(Call<String> call, Throwable t) {
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+
             }
-        });
 
-    }
 
-    private void parseLoginData(String response){
-        try {
-            JSONObject jsonObject = new JSONObject(response);
-            if (jsonObject.getString("status").equals("true")) {
-                Log.e("parseLoginData: ", jsonObject.getString("status"));
-                Toast.makeText(LoginAct.this, "Login Successfully!", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(LoginAct.this,DashboardAct.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-                this.finish();
-                saveInfo(response);
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+});
 
-    }
-
-    private void saveInfo(String response){
-        preferenceHelper.saveSPBoolean(PreferenceHelper.SP_SUDAH_LOGIN,true);
-        try {
-            JSONObject jsonObject = new JSONObject(response);
-            if (jsonObject.getString("status").equals("true")) {
-                Log.e("parseLoginData: ", jsonObject.getString("status"));
-                JSONArray dataArray = jsonObject.getJSONArray("data");
-                for (int i = 0; i < dataArray.length(); i++) {
-                    JSONObject dataobj = dataArray.getJSONObject(i);
-                }
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
+}
 }

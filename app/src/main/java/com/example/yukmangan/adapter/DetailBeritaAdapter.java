@@ -1,5 +1,6 @@
 package com.example.yukmangan.adapter;
 
+import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class DetailBeritaAdapter extends RecyclerView.Adapter<DetailBeritaAdapter.ViewHolder> {
+    Context context;
    private ArrayList<BeritaModel> list=new ArrayList<>();
    public void setBerita(ArrayList<BeritaModel> items){
        if (list != null){
@@ -53,9 +55,9 @@ public class DetailBeritaAdapter extends RecyclerView.Adapter<DetailBeritaAdapte
                 intent.putExtra("title_artikel",list.get(position).getJudulArtikel());
                 intent.putExtra("isi_artikel",list.get(position).getIsiArtikel());
                 intent.putExtra("kategori",list.get(position).getIdTags());
-                final String url="https://yukmangan.id/dapurmangan/assets/upload/blog/artikel/";
-                intent.putExtra("image_artikel",url+list.get(position).getFilefoto());
+                intent.putExtra("foto",list.get(position).getFilefoto());
                 holder.itemView.getContext().startActivity(intent);
+
             }
         });
     }

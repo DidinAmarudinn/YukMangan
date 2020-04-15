@@ -57,8 +57,9 @@
                         android:layout_marginEnd="10dp"
                         android:layout_gravity="center"
                         android:text="Confirmed"
+                        android:textStyle="bold"
                         android:textColor="@color/positif"
-                        android:textSize="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp"
                         android:layout_marginRight="10dp" />
 
                 </LinearLayout>
@@ -82,8 +83,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="10dp"
                         android:text="recovered"
+                        android:textStyle="bold"
                         android:textColor="@color/recovered"
-                        android:textSize="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp"
                         android:layout_marginRight="10dp" />
                 </LinearLayout>
 
@@ -106,8 +108,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Death"
+                        android:textStyle="bold"
                         android:textColor="@color/deaths"
-                        android:textSize="@dimen/_10sdp" />
+                        android:textSize="@dimen/_12sdp" />
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout

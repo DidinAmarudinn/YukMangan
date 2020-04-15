@@ -25,9 +25,7 @@ public interface RegisterInterface {
             @Field("no_wa") String no_wa,
             @Field("rw") String rw,
             @Field("rt") String rt,
-            @Field("tgl_daftar") String tgl_daftar,
             @Field("no_ktp") String no_ktp,
-            @Field("siap_relawan") String siap_relawan,
             @Field("tempat_lahir") String tempat_lahir,
             @Field("tgl_lahir") String tgl_lahir,
             @Field("jk") String jk

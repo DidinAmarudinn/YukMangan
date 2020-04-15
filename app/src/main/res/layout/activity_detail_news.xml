@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".presentation.home.DetailNews">
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/img_detail_berita"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_240sdp"
         android:scaleType="centerCrop"
@@ -20,23 +20,23 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/_100sdp"
         android:background="@drawable/gradient"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        app:layout_constraintBottom_toBottomOf="@+id/img_detail_berita"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
+        android:id="@+id/tv_detail_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_12sdp"
         android:layout_marginRight="@dimen/_100sdp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="48dp"
         android:fontFamily="@font/robotomedium"
         android:text="@string/dummy_text"
         android:textColor="@color/text_white"
         android:textSize="@dimen/_24sdp"
         android:textStyle="bold"
-        android:id="@+id/tv_detail_title"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        app:layout_constraintBottom_toBottomOf="@+id/img_detail_berita"
         app:layout_constraintEnd_toEndOf="@+id/view5"
         app:layout_constraintHorizontal_bias="0.11"
         app:layout_constraintStart_toStartOf="parent" />
@@ -61,14 +61,14 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <View
-            android:layout_width="@dimen/_40sdp"
-            android:layout_height="@dimen/_40sdp"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
             android:layout_centerInParent="true"
             android:background="@drawable/circlewhite" />
 
         <ImageView
-            android:layout_width="@dimen/_30sdp"
-            android:layout_height="@dimen/_30sdp"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
             android:layout_centerInParent="true"
             app:srcCompat="@drawable/ic_back" />
     </RelativeLayout>
@@ -81,7 +81,7 @@
         android:layout_marginRight="@dimen/_12sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4">
+        app:layout_constraintTop_toBottomOf="@+id/img_detail_berita">
         <TextView
             android:id="@+id/tv_detail_kategori"
             android:layout_width="wrap_content"

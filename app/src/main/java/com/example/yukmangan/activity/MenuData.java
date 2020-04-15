@@ -35,6 +35,8 @@ public class MenuData extends AppCompatActivity {
         ProvinsiViewModel viewModel=new ViewModelProvider(this,
                 new ViewModelProvider.NewInstanceFactory()).get(ProvinsiViewModel.class);
         viewModel.setProvinsiData();
+        progressDialog.setTitle("Data Provinsi");
+        progressDialog.setMessage("Please Wait");
         progressDialog.show();
         viewModel.setProvinsiData();
         viewModel.getProvinsiData().observe(this, new Observer<ArrayList<ProvinsiModel>>() {
