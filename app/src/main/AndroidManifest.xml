@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.yukmangan">
-
     <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,16 +10,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".presentation.home.DetailNews"></activity>
-        <activity android:name=".presentation.home.NewsAct" />
-        <activity android:name=".activity.MenuData"/>
+        <activity android:name=".presentation.home.UpdateProfile" />
+        <activity android:name=".presentation.home.Profile" />
         <activity android:name=".presentation.home.DashboardAct" />
         <activity android:name=".presentation.login.LoginAct" />
         <activity android:name=".presentation.register.RegisterAct" />
+        <activity android:name=".presentation.home.NewsAct" />
+        <activity android:name=".presentation.home.DetailNews" />
         <activity android:name=".presentation.home.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

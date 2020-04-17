@@ -21,8 +21,6 @@ import android.widget.TextView;
 
 import com.example.yukmangan.R;
 import com.example.yukmangan.helper.PreferenceHelper;
-import com.example.yukmangan.network.api.ApiEndpoint;
-import com.example.yukmangan.network.api.ApiServiceAll;
 import com.example.yukmangan.network.model.IndoneisaModel;
 import com.example.yukmangan.activity.MenuData;
 import com.example.yukmangan.viewmodel.IndonesiaViewModel;
@@ -32,21 +30,10 @@ import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
-import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
 
 public class HomeFragment extends Fragment implements View.OnClickListener{
     private ProgressDialog mProgressApp;
@@ -54,7 +41,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     private PreferenceHelper preferenceHelper;
     LinearLayout menu_data,menu_news;
     ImageView ic_setting;
-    private TextView tv_count_relawan;
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -72,13 +58,11 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
 
         mProgressApp.setTitle("Please Wait");
         mProgressApp.setCancelable(true);
-        tv_count_relawan=view.findViewById(R.id.count_relawan);
         mProgressApp.setMessage("Show Data");
         menu_data=view.findViewById(R.id.menu_data);
         menu_news=view.findViewById(R.id.menu_news);
         ic_setting = view.findViewById(R.id.ic_setting);
         mProgressApp.show();
-        getRelawanCount();
         menu_data.setOnClickListener(this);
         menu_news.setOnClickListener(this);
         ic_setting.setOnClickListener(this);
@@ -123,6 +107,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
                 startActivity(menudata);
                 break;
             case R.id.btn_selengkapnya:
+                preferenceHelper.saveSPBoolean(PreferenceHelper.SP_SUDAH_LOGIN,false);
                 Intent intent = new Intent(getActivity(),MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
@@ -137,36 +122,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
                 break;
         }
     }
-    public void getRelawanCount(){
-        Retrofit retrofit= ApiServiceAll.getRetrofitService();
-        ApiEndpoint apiEndpoint=retrofit.create(ApiEndpoint.class);
-        Call<ResponseBody> call=apiEndpoint.getCountRelawan();
-        call.enqueue(new Callback<ResponseBody>() {
-            @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                if (response.isSuccessful()){
-                    try {
-                        JSONObject jsonObject=new JSONObject(response.body().string());
-                        if (jsonObject.get("status").toString().equals("true")){
-                            JSONArray jsonArray=jsonObject.getJSONArray("data");
-                            for (int i=0; i<jsonArray.length(); i++){
-                                JSONObject data=jsonArray.getJSONObject(i);
-                                String countRelawan=data.getString("Total").toString();
-                                tv_count_relawan.setText(countRelawan+" "+"RELAWAN BERGABUNG");
-                            }
-                        }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
 
-            @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
-            }
-        });
-    }
 
 }

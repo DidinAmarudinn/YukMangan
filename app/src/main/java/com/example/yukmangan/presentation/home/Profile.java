@@ -14,8 +14,9 @@ import android.widget.TextView;
 import com.example.yukmangan.R;
 
 public class Profile extends AppCompatActivity implements View.OnClickListener {
-Button btn_profile_update;
+Button btn_profile_update,btn_log_out;
 TextView txt_back;
+
     @SuppressLint("SourceLockedOrientationActivity")
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -180,27 +180,25 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_12sdp"
-                android:layout_marginRight="@dimen/_12sdp"
-                android:layout_marginBottom="@dimen/_12sdp"
-                android:layout_weight="1"
-                >
-
-                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_12sdp"
+                    android:layout_marginRight="@dimen/_12sdp"
+                    android:layout_marginBottom="@dimen/_12sdp"
+                    android:layout_weight="1"
+                    >
+                <AutoCompleteTextView
                     android:id="@+id/edt_cari_propinsi"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/colorPrimary"
                     android:fontFamily="@font/robotolight"
                     android:hint="Cari Propinsi"
-                    android:inputType="textAutoComplete"
                     android:lineSpacingExtra="@dimen/_1sdp"
-                    android:maxLines="1"
+
                     android:textColor="@android:color/black"
                     android:textSize="@dimen/_14sdp" />
-            </com.google.android.material.textfield.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout>
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -210,7 +208,7 @@
                     android:layout_weight="1"
                     >
 
-                    <EditText
+                    <androidx.appcompat.widget.AppCompatAutoCompleteTextView
                         android:id="@+id/edt_cari_kabupaten"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -232,7 +230,7 @@
                     android:layout_weight="1"
                     >
 
-                    <EditText
+                    <androidx.appcompat.widget.AppCompatAutoCompleteTextView
                         android:id="@+id/edt_cari_kecamatan"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -254,7 +252,7 @@
                     android:layout_weight="1"
                     >
 
-                    <EditText
+                    <androidx.appcompat.widget.AppCompatAutoCompleteTextView
                         android:id="@+id/edt_cari_desa"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

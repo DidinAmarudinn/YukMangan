@@ -127,12 +127,6 @@ public class RequestHandler {
         return sb.toString();
     }
 
-
-
-    //Metode Untuk mengirim httpPostRequest
-    //Metode ini mengambil 2 Argumen
-    //Metode Pertama adalah URL dari Skrip yang digunakan untuk mengirimkan permintaan
-    //Yang lainnya adalah HashMap dengan nilai pasangan nama yang berisi data yang akan dikirim dengan permintaan
     public String sendPostRequest(String requestURL, HashMap<String, String> postDataParams) {
         //Membuat URL
         URL url;
@@ -141,27 +135,21 @@ public class RequestHandler {
         try {
             url = new URL(requestURL);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-
             conn.setReadTimeout(15000);
             conn.setConnectTimeout(15000);
             conn.setRequestMethod("POST");
             conn.setDoInput(true);
             conn.setDoOutput(true);
-
             //Membuat Keluaran Stream
             OutputStream os = conn.getOutputStream();
             //Menulis Parameter Untuk Permintaan
             //Kita menggunakan metode getPostDataString yang didefinisikan di bawah ini
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
             writer.write(getPostDataString(postDataParams));
-
             writer.flush();
             writer.close();
             os.close();
-
-
             int responseCode = conn.getResponseCode();
-
             if (responseCode == HttpsURLConnection.HTTP_OK) {
                 BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
                 sb = new StringBuilder();
@@ -176,8 +164,6 @@ public class RequestHandler {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
         return sb.toString();
     }
 
@@ -204,29 +190,17 @@ public class RequestHandler {
         return sb.toString();
     }
 
-    public String sendGetRequestParam(String requestURL, HashMap<String, String> id){
+    public String sendGetRequestParam(String requestURL, String id){
         StringBuilder sb =new StringBuilder();
         try {
             URL url = new URL(requestURL+id);
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            /*conn.setReadTimeout(15000);
-            conn.setConnectTimeout(15000);
-            conn.setRequestMethod("GET");
-            conn.setDoInput(true);
-            conn.setDoOutput(true);*/
-            int responseCode = conn.getResponseCode();
-            if (responseCode==HttpsURLConnection.HTTP_SERVER_ERROR){
-                Toast.makeText(context, "Tidak Terhubung Ke Jaringan", Toast.LENGTH_SHORT).show();
-            }else{
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-                String s;
-                while((s=bufferedReader.readLine())!=null){
-                    sb.append(s+"\n");
-                }
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(con.getInputStream()));
+            String s;
+            while((s=bufferedReader.readLine())!=null){
+                sb.append(s+"\n");
             }
-
         }catch(Exception e){
-            e.getMessage();
         }
         return sb.toString();
     }
@@ -245,8 +219,8 @@ public class RequestHandler {
         }
         return result.toString();
     }
-    public String sendPostRequestEmail(String requestURL, HashMap<String, String> postDataParams,String selectedFilePath) {
 
+    public String sendPostRequestEmail(String requestURL, HashMap<String, String> postDataParams,String selectedFilePath) {
         StringBuilder sb = new StringBuilder();
         HttpURLConnection connection;
         DataOutputStream dataOutputStream;
@@ -283,14 +257,12 @@ public class RequestHandler {
                 connection.setRequestProperty("ENCTYPE", "multipart/form-data");
                 connection.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + boundary);
                 connection.setRequestProperty("uploaded_file", selectedFilePath);
-
                 //creating new dataoutputstream
                 dataOutputStream = new DataOutputStream(connection.getOutputStream());
                 //writing bytes to data outputstream
                 dataOutputStream.writeBytes(twoHyphens + boundary + lineEnd);
                 dataOutputStream.writeBytes("Content-Disposition: form-data; name=\"uploaded_file\";filename=\""
                         + selectedFilePath + "\"" + lineEnd);
-
                 dataOutputStream.writeBytes(lineEnd);
                 //returns no. of bytes present in fileInputStream
                 bytesAvailable = fileInputStream.available();
@@ -311,19 +283,14 @@ public class RequestHandler {
 
                 dataOutputStream.writeBytes(lineEnd);
                 dataOutputStream.writeBytes(twoHyphens + boundary + twoHyphens + lineEnd);
-
                 BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(dataOutputStream, "UTF-8"));
                 writer.write(getPostDataString(postDataParams));
-
                 writer.flush();
                 writer.close();
-
                 //closing the input and output streams
                 fileInputStream.close();
                 dataOutputStream.flush();
                 dataOutputStream.close();
-
-
                 int responseCode = connection.getResponseCode();
                 if (responseCode == HttpsURLConnection.HTTP_OK) {
                     BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
@@ -336,7 +303,6 @@ public class RequestHandler {
                 } else if (responseCode == HttpsURLConnection.HTTP_NOT_FOUND) {
                     Toast.makeText(context, "Tidak Terhubung Ke Jaringan", Toast.LENGTH_SHORT).show();
                 }
-
             } catch (Exception e) {
                 e.getStackTrace();
             }

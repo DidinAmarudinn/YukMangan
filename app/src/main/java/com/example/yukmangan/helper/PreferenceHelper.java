@@ -5,88 +5,48 @@ import android.content.SharedPreferences;
 
 public class PreferenceHelper {
 
+    public static final String SP_LOGIN = "spLogin";
+    public static final String SP_NAMA = "spNama";
+    public static final String SP_EMAIL = "spEmail";
+    public static final String ID="ID";
+    public static final String SP_SUDAH_LOGIN = "spSudahLogin";
 
-    private final String INTRO = "intro";
-    private final String NAME = "name";
-    private final String ID = "id";
-    private final String ALAMAT="alamat";
-    private final String EMAIL="email";
-    private final String JK="jk";
-    private SharedPreferences app_prefs;
-    private Context context;
+    SharedPreferences sp;
+    SharedPreferences.Editor spEditor;
 
-    public PreferenceHelper(Context context) {
-        app_prefs = context.getSharedPreferences("shared",
-                Context.MODE_PRIVATE);
-        this.context = context;
+    public PreferenceHelper(Context context){
+        sp = context.getSharedPreferences(SP_LOGIN, Context.MODE_PRIVATE);
+        spEditor = sp.edit();
     }
 
-    public void putIsLogin(boolean loginorout) {
-        SharedPreferences.Editor edit = app_prefs.edit();
-        edit.putBoolean(INTRO, loginorout);
-        edit.commit();
-    }
-    public boolean getIsLogin() {
-        return app_prefs.getBoolean(INTRO, false);
-    }
-
-    public void putName(String loginorout) {
-        SharedPreferences.Editor edit = app_prefs.edit();
-        edit.putString(NAME, loginorout);
-        edit.commit();
-    }
-    public String getName() {
-        return app_prefs.getString(NAME, "");
-    }
-
-    public void putId(String loginorout) {
-        SharedPreferences.Editor edit = app_prefs.edit();
-        edit.putString(ID, loginorout);
-        edit.commit();
-    }
-    public String getID() {
-        return app_prefs.getString(ID, "");
-
-    } public void putAlamat(String loginorout) {
-        SharedPreferences.Editor edit = app_prefs.edit();
-        edit.putString(ALAMAT, loginorout);
-        edit.commit();
-    }
-    public String getAlamat() {
-        return app_prefs.getString(ALAMAT, "");
-    }
-    public void putEmail(String loginorout) {
-        SharedPreferences.Editor edit = app_prefs.edit();
-        edit.putString(EMAIL, loginorout);
-        edit.commit();
-    }
-    public String getEMAIL() {
-        return app_prefs.getString(EMAIL, "");
-    }
-    /*public void logoutUser() {
-        // Clearing all data from Shared Preferences
-        boolean look = false;
-        if (this.checkFirstLook()) {
-            look = true;
-        }
-        String iduser = this.getIduser();
-        String username = this.getNama();
-
-        spEditor.clear();
+    public void saveSPString(String keySP, String value){
+        spEditor.putString(keySP, value);
         spEditor.commit();
-        this.setIduser(iduser);
-        this.setNama(username);;
+    }
 
-        if (look) {
-            this.setFirstlook();
-        }
-    }*/
-    public void putJk(String loginorout) {
-        SharedPreferences.Editor edit = app_prefs.edit();
-        edit.putString(JK, loginorout);
-        edit.commit();
+    public void saveSPInt(String keySP, int value){
+        spEditor.putInt(keySP, value);
+        spEditor.commit();
     }
-    public String getJk() {
-        return app_prefs.getString(JK, "");
+
+    public void saveSPBoolean(String keySP, boolean value){
+        spEditor.putBoolean(keySP, value);
+        spEditor.commit();
     }
+
+    public String getSPNama(){
+        return sp.getString(SP_NAMA, "");
+    }
+
+    public String getSPEmail(){
+        return sp.getString(SP_EMAIL, "");
+    }
+
+    public String getId(){return sp.getString(ID,"");}
+
+    public Boolean getSPSudahLogin(){
+        return sp.getBoolean(SP_SUDAH_LOGIN, false);
+    }
+
+
 }

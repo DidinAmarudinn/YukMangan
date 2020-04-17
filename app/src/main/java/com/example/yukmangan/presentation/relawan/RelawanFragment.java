@@ -23,8 +23,7 @@ import java.util.List;
  */
 public class RelawanFragment extends Fragment implements RelawanView {
 
-    private RelawanPresenter presenter;
-    private TextView nama, alamat;
+
 
     public RelawanFragment() {
         // Required empty public constructor
@@ -42,16 +41,14 @@ public class RelawanFragment extends Fragment implements RelawanView {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        presenter = new RelawanPresenter();
-        presenter.getDataRelawanById("52");
-        nama = view.findViewById(R.id.tv_name_relawan_dashboard);
+
 
     }
 
     @Override
     public void getDataRelawanById(Relawan relawan) {
         Log.e("ERROR",relawan.getData().get(0).getNamaLengkap());
-        nama.setText(relawan.getData().get(0).getNamaLengkap());
+
     }
 
     @Override

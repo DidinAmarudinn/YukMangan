@@ -13,13 +13,10 @@ import android.widget.TextView;
 
 import com.example.yukmangan.R;
 import com.example.yukmangan.api.RequestHandler;
-import com.example.yukmangan.api.WebServiceApi;
 import com.example.yukmangan.helper.PreferenceHelper;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.HashMap;
 
 public class MemberFragment extends Fragment {
     TextView tv_relawan_saldo_dashboard;
@@ -36,30 +33,10 @@ public class MemberFragment extends Fragment {
         preferenceHelper=new PreferenceHelper(getContext());
         TextView tv_member_dashboard=view.findViewById(R.id.tv_nama_member_dashbooard);
         TextView tv_relawan_saldo_dashboard = view.findViewById(R.id.tv_alamat_relawan_dashboard);
-        total_saldo();
+
         return view;
     }
 
-    void total_saldo(){
-        class saldo extends AsyncTask<Void,Void,String>{
-            @Override
-            protected void onPreExecute() {
-                super.onPreExecute();
-                Log.d("","Loading.....");
-            }
-            @Override
-            protected String doInBackground(Void... voids) {
-                return new RequestHandler().sendGetRequest(WebServiceApi.URL_SALDO);
-            }
-            @Override
-            protected void onPostExecute(String s) {
-                super.onPostExecute(s);
-                get_json_saldo(s);
-            }
-        }
-        saldo x = new saldo();
-        x.execute();
-    }
 
     void get_json_saldo(String json){
         try {

@@ -1,7 +1,14 @@
 
 package com.example.yukmangan.network.model.donatur;
 
+
 import com.google.gson.annotations.SerializedName;
+
+
+
+
+import com.google.gson.annotations.SerializedName;
+
 
 @SuppressWarnings("unused")
 public class Datum {
