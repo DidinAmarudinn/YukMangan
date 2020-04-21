@@ -1,21 +1,17 @@
-package com.example.yukmangan.activity;
+package com.example.yukmangan.presentation.home;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.app.ProgressDialog;
 import android.os.Bundle;
-
 import com.example.yukmangan.R;
 import com.example.yukmangan.adapter.DetailProvinsiAdapter;
 import com.example.yukmangan.network.model.ProvinsiModel;
 import com.example.yukmangan.viewmodel.ProvinsiViewModel;
-
 import java.util.ArrayList;
-
 public class MenuData extends AppCompatActivity {
     private ProgressDialog progressDialog;
     private RecyclerView rv_provinsi;

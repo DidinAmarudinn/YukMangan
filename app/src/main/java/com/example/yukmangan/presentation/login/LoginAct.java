@@ -2,10 +2,13 @@ package com.example.yukmangan.presentation.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -38,6 +41,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 public class LoginAct extends AppCompatActivity {
     private Button btn_masuk;
     private EditText et_email,et_password;
+    private ProgressDialog progressDialog;
     PreferenceHelper preferenceHelper;
     TextView tv_register;
     @Override
@@ -57,8 +61,9 @@ public class LoginAct extends AppCompatActivity {
         btn_masuk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               Intent intent=new Intent(LoginAct.this,DashboardAct.class);
-               startActivity(intent);
+               //Intent intent=new Intent(LoginAct.this,DashboardAct.class);
+               //startActivity(intent);
+                login();
                 //loginUser();
             }
         });
@@ -72,15 +77,28 @@ public class LoginAct extends AppCompatActivity {
         });
 
     }
+    private void login(){
+        if (validate()==false){
+            loginFailed();
+            return;
+        }
+        loginUser();
+
+    }
     private void loginUser() {
         final String email = et_email.getText().toString().trim();
         final String password = et_password.getText().toString().trim();
+        progressDialog=new ProgressDialog(this);
+        progressDialog.setMessage("Login........");
+        progressDialog.setCancelable(true);
+        showDialog();
         Retrofit retrofit= ApiServiceAll.getRetrofitService();
         ApiEndpoint apiEndpoint=retrofit.create(ApiEndpoint.class);
         Call<ResponseBody> call=apiEndpoint.getUserLogin(email,password);
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                hiedeDialog();
                 if (response.isSuccessful()) {
                     try {
                         assert response.body() != null;
@@ -121,11 +139,57 @@ public class LoginAct extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
-
+                hiedeDialog();
             }
 
 
 });
 
 }
+    private void showDialog(){
+        if (!progressDialog.isShowing())
+            progressDialog.show();
+
+    }
+    private void hiedeDialog(){
+        if (progressDialog.isShowing())
+            progressDialog.dismiss();
+
+    }
+    private void loginSucces(){
+        btn_masuk.setEnabled(true);
+    }
+    private void loginFailed(){
+        Toast.makeText(LoginAct.this,"Login Fiailed",Toast.LENGTH_LONG).show();
+        btn_masuk.setEnabled(true);
+    }
+    private boolean validate(){
+        boolean valid=true;
+        String email=et_email.getText().toString();
+        String pasword=et_password.getText().toString();
+
+        if (email.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            et_email.setError("masukan email dengan benar");
+            requestFocus(et_email);
+            valid=false;
+        }else {
+            et_email.setError(null);
+        }
+        if (pasword.isEmpty()){
+            et_password.setError("masukan password");
+            requestFocus(et_password);
+            valid=false;
+        }else {
+            et_password.setError(null);
+        }
+
+        return valid;
+    }
+
+    private void requestFocus(View view) {
+        if (view.requestFocus()){
+            getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+        }
+    }
+
 }

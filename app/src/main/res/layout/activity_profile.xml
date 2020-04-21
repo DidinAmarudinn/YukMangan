@@ -15,7 +15,7 @@
 <TextView
     android:id="@+id/txt_back"
     android:textSize="@dimen/_14sdp"
-
+    android:drawableLeft="@drawable/ic_back"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"/>
     <ImageView
@@ -59,118 +59,72 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-               <TableLayout
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/gbr_uang"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:src="@drawable/ic_saldo"
+                    android:padding="@dimen/_6sdp"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"/>
+                <TextView
+                    android:layout_toRightOf="@id/gbr_uang"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_1sdp"
+                    android:layout_marginBottom="@dimen/_12sdp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/robotomedium"
+                    android:gravity="left"
+                    android:text="@string/Donasi"
+                    android:textColor="@color/text_black2"
+                    android:textSize="@dimen/_12sdp" />
 
-                   <TableRow
-                       android:layout_height="match_parent"
-                       android:layout_width="match_parent"
-                       android:gravity="center"
-                       android:layout_gravity="center">
-
-                       <TextView
-                           android:id="@+id/txt_donasi"
-                           android:layout_width="126dp"
-                           android:layout_height="@dimen/_30sdp"
-                           android:layout_alignParentStart="true"
-                           android:layout_alignParentLeft="true"
-                           android:gravity="center"
-                           android:paddingTop="@dimen/_15sdp"
-                           android:src="@drawable/ic_saldo"
-                           android:text="DONASI" />
-
-                       <TextView
-                           android:paddingTop="@dimen/_15sdp"
-                           android:id="@+id/txt_status"
-                           android:text="STATUS"
-                           android:layout_width="126dp"
-                           android:layout_height="@dimen/_30sdp"
-                           android:layout_alignParentStart="true"
-                           android:layout_alignParentLeft="true"
-                           android:src="@drawable/ic_saldo"
-                           android:gravity="center"/>
-
-                       <TextView
-                           android:paddingTop="@dimen/_15sdp"
-                           android:id="@+id/txt_group"
-                           android:text="GROUP"
-                           android:layout_width="126dp"
-                           android:layout_height="@dimen/_30sdp"
-                           android:layout_alignParentStart="true"
-                           android:layout_alignParentLeft="true"
-                           android:src="@drawable/ic_saldo"
-                           android:gravity="center"/>
-                   </TableRow>
-
-                   <TableRow
-                       android:layout_height="match_parent"
-                       android:layout_width="match_parent"
-                       android:gravity="center"
-                       android:layout_gravity="center">
-
-                       <ImageView
-                           android:padding="@dimen/_6sdp"
-                           android:id="@+id/gbr_uang2"
-                           android:layout_width="126dp"
-                           android:layout_height="@dimen/_30sdp"
-                           android:layout_alignParentStart="true"
-                           android:layout_alignParentLeft="true"
-                           android:src="@drawable/ic_saldo" />
-
-                       <ImageView
-                           android:id="@+id/gbr_uang3"
-                           android:layout_width="@dimen/_30sdp"
-                           android:layout_height="@dimen/_30sdp"
-                           android:layout_alignParentStart="true"
-                           android:layout_alignParentLeft="true"
-                           android:padding="@dimen/_6sdp"
-                           app:srcCompat="@drawable/ic_check"/>
-
-                       <ImageView
-                           android:id="@+id/gbr_uang5"
-                           android:layout_width="@dimen/_30sdp"
-                           android:layout_height="@dimen/_30sdp"
-                           android:padding="@dimen/_6sdp"
-                           app:srcCompat="@drawable/ic_group" />
-                   </TableRow>
-                   <TableRow
-                       android:layout_width="match_parent"
-                       android:layout_height="match_parent"
-                       android:layout_gravity="center"
-                       android:gravity="center">
-                       <TextView
-                           android:gravity="center"
-                           android:textColor="#D50000"
-                           android:text="100,000"
-                           android:id="@+id/gbr_uang2a"
-                           android:layout_width="@dimen/_30sdp"
-                           android:layout_height="@dimen/_30sdp"
-                           android:layout_alignParentStart="true"
-                           android:layout_alignParentLeft="true"
-                           android:padding="@dimen/_6sdp"
-                           />
-
-                       <TextView
-                           android:id="@+id/gbr_uang3a"
-                           android:text="MEMBER"
-                           android:gravity="center"
-                           android:layout_alignParentLeft="true"
-                           android:layout_alignParentStart="true"
-                           android:src="@drawable/ic_saldo"
-                           android:padding="@dimen/_6sdp"
-                           android:layout_width="@dimen/_30sdp"
-                           android:layout_height="@dimen/_30sdp"/>
-                       <TextView
-                           android:text="100"
-                           android:gravity="center"
-                           android:id="@+id/gbr_uang5a"
-                           android:src="@drawable/ic_saldo"
-                           android:padding="@dimen/_6sdp"
-                           android:layout_width="@dimen/_30sdp"
-                           android:layout_height="@dimen/_30sdp"/>
-                   </TableRow>
-               </TableLayout>
+                <TextView
+                    android:layout_toRightOf="@id/gbr_uang"
+                    android:layout_weight="1"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/robotomedium"
+                    android:text="@string/Jumlah"
+                    android:layout_gravity="center"
+                    android:textColor="@color/deaths"
+                    android:textSize="@dimen/_12sdp"
+                    android:layout_marginBottom="@dimen/_12sdp"
+                    android:gravity="left" />
+                <ImageView
+                    android:id="@+id/gbr_status"
+                    android:layout_below="@id/gbr_uang"
+                    android:src="@drawable/ic_person"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    tools:ignore="VectorDrawableCompat" />
+                <TextView
+                    android:id="@+id/txt_status"
+                    android:drawableRight="@drawable/ic_update"
+                    android:textColor="@color/text_black2"
+                    android:textSize="@dimen/_12sdp"
+                    android:text="@string/sts"
+                    android:fontFamily="@font/robotomedium"
+                    android:layout_below="@id/gbr_uang"
+                    android:layout_toRightOf="@id/gbr_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="10dp"/>
+                <TextView
+                    android:id="@+id/txt_member"
+                    android:drawableRight="@drawable/ic_check"
+                    android:textColor="@color/text_black2"
+                    android:textSize="@dimen/_12sdp"
+                    android:text="@string/member"
+                    android:fontFamily="@font/robotomedium"
+                    android:layout_below="@id/txt_status"
+                    android:layout_toRightOf="@id/gbr_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="10dp"/>
             </RelativeLayout>
          </LinearLayout>
      </androidx.cardview.widget.CardView>
@@ -179,118 +133,97 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="@dimen/_12sdp">
-       <TableLayout
-           android:layout_marginTop="@dimen/_10sdp"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:gravity="center">
-           <TableRow
-               android:layout_width="match_parent"
-               android:layout_height="match_parent">
+        <TextView
+           android:drawableStart="@drawable/ic_phone"
+            android:id="@+id/hp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginRight="@dimen/_12sdp"
+            android:layout_marginLeft="@dimen/_12sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/robotomedium"
+            android:text="@string/NoHp"
+            android:layout_gravity="center"
+            android:textColor="@color/text_black2"
+            android:textSize="@dimen/_12sdp"
+            android:gravity="left"
+            tools:ignore="RtlCompat" />
+        <TextView
+            android:drawableStart="@drawable/ic_email"
+            android:id="@+id/email"
+            android:layout_below="@id/hp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="@dimen/_12sdp"
+            android:layout_marginLeft="@dimen/_12sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/robotomedium"
+            android:text="@string/Email"
+            android:layout_gravity="center"
+            android:textColor="@color/text_black2"
+            android:textSize="@dimen/_12sdp"
+            android:layout_marginBottom="@dimen/_2sdp"
+            android:gravity="left"
+            android:drawableLeft="@drawable/ic_email" />
+        <TextView
+            android:drawableLeft="@drawable/ic_add_location_black_24dp"
+            android:id="@+id/almt"
+            android:layout_below="@id/email"
+            android:layout_marginTop="@dimen/_1sdp"
+            android:layout_marginRight="@dimen/_12sdp"
+            android:layout_marginLeft="@dimen/_12sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/robotomedium"
+            android:text="@string/Alamat"
+            android:layout_gravity="center"
+            android:textColor="@color/text_black2"
+            android:textSize="@dimen/_12sdp"
+            android:gravity="left" />
 
-               <TextView
-                   android:id="@+id/hp"
-                   android:layout_marginLeft="@dimen/_12sdp"
-                   android:gravity="left"
-                   android:layout_gravity="left"
-                   android:layout_width="match_parent"
-                   android:layout_height="match_parent"
-                   android:drawableStart="@drawable/ic_phone"
-                   android:fontFamily="@font/robotomedium"
-                   android:text="@string/NoHp"
-                   android:textColor="@color/text_black"
-                   android:textSize="@dimen/_12sdp"
-                   tools:ignore="RtlCompat" />
-           </TableRow>
-           <TableRow
-               android:layout_width="match_parent"
-               android:layout_height="match_parent">
-               <TextView
-                   android:drawableStart="@drawable/ic_email"
-                   android:id="@+id/email"
-                   android:gravity="left"
-                   android:layout_gravity="left"
-                   android:layout_marginRight="@dimen/_12sdp"
-                   android:layout_marginLeft="@dimen/_12sdp"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:fontFamily="@font/robotomedium"
-                   android:text="@string/Email"
-                   android:textColor="@color/text_black"
-                   android:textSize="@dimen/_12sdp"
-                   android:drawableLeft="@drawable/ic_email" />
-           </TableRow>
-           <TableRow
-               android:layout_width="match_parent"
-               android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/tgl_gabung"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/almt"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/_12sdp"
+            android:layout_marginTop="0dp"
+            android:layout_marginRight="@dimen/_12sdp"
+            android:drawableLeft="@drawable/ic_date_range"
+            android:fontFamily="@font/robotomedium"
+            android:gravity="left"
+            android:text="@string/tgl_gabung"
+            android:textColor="@color/text_black2"
+            android:textSize="@dimen/_12sdp" />
 
-               <TextView
-                   android:id="@+id/alamat"
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:layout_gravity="left"
-                   android:layout_marginLeft="@dimen/_12sdp"
-                   android:layout_marginRight="@dimen/_12sdp"
-                   android:drawableLeft="@drawable/ic_add_location_black_24dp"
-                   android:fontFamily="@font/robotomedium"
-                   android:gravity="left"
-                   android:text="@string/Alamat"
-                   android:textColor="@color/text_black"
-                   android:textSize="@dimen/_12sdp" />
-           </TableRow>
-           <TableRow
-               android:layout_width="match_parent"
-               android:layout_height="match_parent">
-               <TextView
-                   android:id="@+id/tgl_gabung"
-                   android:gravity="left"
-                   android:layout_gravity="left"
-                   android:layout_marginRight="@dimen/_12sdp"
-                   android:layout_marginLeft="@dimen/_12sdp"
-                   android:layout_width="match_parent"
-                   android:layout_height="match_parent"
-                   android:fontFamily="@font/robotomedium"
-                   android:text="@string/tgl_gabung"
-                   android:textColor="@color/text_black"
-                   android:textSize="@dimen/_12sdp"
-                   android:drawableLeft="@drawable/ic_date_range" />
-           </TableRow>
-           <TableRow
-           android:layout_marginTop="@dimen/_50sdp"
-               android:gravity="center"
-               android:paddingBottom="@dimen/_1sdp"
-               android:layout_width="match_parent"
-               android:layout_height="match_parent">
-               <Button
-                   android:id="@+id/btn_profile_update"
-                   android:layout_width="match_parent"
-                   android:layout_height="match_parent"
-                   android:layout_marginLeft="@dimen/_12sdp"
-                   android:layout_marginRight="@dimen/_12sdp"
-                   android:background="#00C853"
-                   android:fontFamily="@font/robotomedium"
-                   android:text="@string/Update"
-                   android:textColor="@android:color/white"
-                   android:textSize="@dimen/_18sdp"
-                   />
-           </TableRow>
-           <TableRow
-               android:padding="@dimen/_1sdp"
-               android:gravity="center"
-               android:layout_width="match_parent"
-               android:layout_height="match_parent">
-               <Button
-                   android:layout_width="match_parent"
-                   android:layout_height="match_parent"
-                   android:layout_marginLeft="@dimen/_12sdp"
-                   android:layout_marginTop="@dimen/_6sdp"
-                   android:layout_marginRight="@dimen/_12sdp"
-                   android:background="#D50000"
-                   android:fontFamily="@font/robotomedium"
-                   android:text="@string/Logout"
-                   android:textColor="@android:color/white"
-                   android:textSize="@dimen/_18sdp" />
-           </TableRow>
-       </TableLayout>
+        <Button
+            android:id="@+id/btn_profile_update"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tgl_gabung"
+            android:layout_marginLeft="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_80sdp"
+            android:layout_marginRight="@dimen/_12sdp"
+            android:background="@drawable/bg_button_primary"
+            android:fontFamily="@font/robotomedium"
+            android:text="@string/Update"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_18sdp"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_profile_update"
+            android:layout_marginLeft="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:layout_marginRight="@dimen/_12sdp"
+            android:background="@drawable/bg_button_primary"
+            android:fontFamily="@font/robotomedium"
+            android:text="@string/Logout"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_18sdp" />
     </RelativeLayout>
+
 </RelativeLayout>

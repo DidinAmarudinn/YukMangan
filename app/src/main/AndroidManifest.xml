@@ -11,6 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".presentation.home.UpdateProfile" />
+        <activity android:name=".presentation.home.MenuData"/>
         <activity android:name=".presentation.home.Profile" />
         <activity android:name=".presentation.home.DashboardAct" />
         <activity android:name=".presentation.login.LoginAct" />

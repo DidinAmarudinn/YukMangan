@@ -70,9 +70,8 @@
             android:layout_width="@dimen/_25sdp"
             android:layout_height="@dimen/_25sdp"
             android:layout_centerInParent="true"
-            app:srcCompat="@drawable/ic_back" />
+            app:srcCompat="@drawable/ic_navigate_before_black_24dp" />
     </RelativeLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

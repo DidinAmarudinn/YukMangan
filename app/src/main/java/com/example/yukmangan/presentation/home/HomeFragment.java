@@ -6,8 +6,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -21,8 +19,9 @@ import android.widget.TextView;
 
 import com.example.yukmangan.R;
 import com.example.yukmangan.helper.PreferenceHelper;
+import com.example.yukmangan.network.api.ApiEndpoint;
+import com.example.yukmangan.network.api.ApiServiceAll;
 import com.example.yukmangan.network.model.IndoneisaModel;
-import com.example.yukmangan.activity.MenuData;
 import com.example.yukmangan.viewmodel.IndonesiaViewModel;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Description;
@@ -30,10 +29,21 @@ import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class HomeFragment extends Fragment implements View.OnClickListener{
     private ProgressDialog mProgressApp;
@@ -41,6 +51,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     private PreferenceHelper preferenceHelper;
     LinearLayout menu_data,menu_news;
     ImageView ic_setting;
+    private TextView tv_get_countrelawan;
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -55,13 +66,14 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         SimpleDateFormat simpleDateFormat=new SimpleDateFormat("dd-MM-yyyy");
         String currentDate=simpleDateFormat.format(new Date());
         preferenceHelper=new PreferenceHelper(getContext());
-
         mProgressApp.setTitle("Please Wait");
         mProgressApp.setCancelable(true);
         mProgressApp.setMessage("Show Data");
+        tv_get_countrelawan=view.findViewById(R.id.count_relawan);
         menu_data=view.findViewById(R.id.menu_data);
         menu_news=view.findViewById(R.id.menu_news);
         ic_setting = view.findViewById(R.id.ic_setting);
+        getRelawanCount();
         mProgressApp.show();
         menu_data.setOnClickListener(this);
         menu_news.setOnClickListener(this);
@@ -107,10 +119,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
                 startActivity(menudata);
                 break;
             case R.id.btn_selengkapnya:
-                preferenceHelper.saveSPBoolean(PreferenceHelper.SP_SUDAH_LOGIN,false);
-                Intent intent = new Intent(getActivity(),MainActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
                 break;
             case R.id.menu_news:
                 Intent menunews=new Intent(getActivity(),NewsAct.class);
@@ -121,6 +129,37 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
                 startActivity(act);
                 break;
         }
+    }
+    public void getRelawanCount(){
+        Retrofit retrofit= ApiServiceAll.getRetrofitService();
+        ApiEndpoint apiEndpoint=retrofit.create(ApiEndpoint.class);
+        Call<ResponseBody> call=apiEndpoint.getCountRelawan();
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.isSuccessful()){
+                    try {
+                        JSONObject jsonObject=new JSONObject(response.body().string());
+                        if (jsonObject.get("status").toString().equals("true")){
+                            JSONArray jsonArray=jsonObject.getJSONArray("data");
+                            for (int i=0; i<jsonArray.length(); i++){
+                                JSONObject data=jsonArray.getJSONObject(i);
+                                String countRelawan=data.getString("Total").toString();
+                                tv_get_countrelawan.setText(countRelawan+" "+"RELAWAN");
+                            }
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+            }
+        });
     }
 
 
