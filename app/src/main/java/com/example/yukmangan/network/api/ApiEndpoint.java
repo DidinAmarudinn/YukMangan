@@ -3,24 +3,41 @@ package com.example.yukmangan.network.api;
 import com.example.yukmangan.network.model.BeritaModel;
 import com.example.yukmangan.network.model.CountRelawanModel;
 import com.example.yukmangan.network.model.IndoneisaModel;
+import com.example.yukmangan.network.model.kabupaten.ResponseKabupaten;
+import com.example.yukmangan.network.model.provinsi.ResponseProvinsi;
 import com.example.yukmangan.network.model.donatur.Donatur;
 import com.example.yukmangan.network.model.relawan.Relawan;
-import com.github.florent37.shapeofview.shapes.BubbleView;
 
 import java.util.List;
 
-import okhttp3.Response;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface ApiEndpoint {
     @GET(Api.END_POINT_IDN)
     Call<IndoneisaModel> getSummaryIdn();
+
+
+    @Multipart
+    @POST(Api.END_GAMBAR_VALIDASI)
+    Call<RequestBody> uploadGambar(@Part MultipartBody.Part body);
+
+
+    @GET(Api.END_PROVINSI)
+    Call<ResponseProvinsi> getProvinsi();
+
+    @GET(Api.END_KABUPATEN_BY_ID)
+    Call<ResponseKabupaten> getKabupaten(@Query("provinsi_id") String provinsi_id);
 
     @GET(Api.END_RELAWAN_BY_ID)
     Call<Relawan> getDataRelawanById(
@@ -39,12 +56,16 @@ public interface ApiEndpoint {
     @GET(Api.END_COUNT_RELAWAN)
     Call<CountRelawanModel> getCount();
 
+    @GET(Api.END_GET_COUNT_RW)
+    Call<ResponseBody> getCountRw();
+
     @FormUrlEncoded
     @POST(Api.END_LOGIN)
     Call<ResponseBody> getUserLogin(
             @Field("email") String email,
             @Field("password") String password
     );
+
     @FormUrlEncoded
     @POST(Api.END_REGISTER)
     Call<ResponseBody> getUserRegister(
@@ -71,4 +92,5 @@ public interface ApiEndpoint {
 
 
     ) ;
+
 }

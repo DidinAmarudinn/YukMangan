@@ -77,7 +77,6 @@ import retrofit2.Retrofit;
         }else {
             registerMe();
         }
-
     }
     private void registerMe() {
         final String name = et_name.getText().toString();
@@ -92,7 +91,7 @@ import retrofit2.Retrofit;
         final String id_jabatan = "";
         final String id_pendaftar_skill = "";
         final String no_wa = "";
-        final String rw = "";
+        final String rw = "rw0g";
         final String rt = "";
         final String no_ktp = "";
         final String tempat_lahir = "";

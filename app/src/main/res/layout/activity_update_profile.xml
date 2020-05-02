@@ -195,7 +195,6 @@
                     android:fontFamily="@font/robotolight"
                     android:hint="Cari Propinsi"
                     android:lineSpacingExtra="@dimen/_1sdp"
-
                     android:textColor="@android:color/black"
                     android:textSize="@dimen/_14sdp" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -277,8 +276,6 @@
                     android:text="Simpan"
                     android:textColor="@android:color/white"
                     android:textSize="@dimen/_18sdp" />
-
-
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
     </androidx.cardview.widget.CardView>

@@ -12,6 +12,8 @@ public class PreferenceHelper {
     private final String ALAMAT="alamat";
     private final String EMAIL="email";
     private final String JK="jk";
+    private final String id_provinsi="12";
+    private final String ID_RW="rw";
     private SharedPreferences app_prefs;
     private Context context;
 
@@ -87,5 +89,23 @@ public class PreferenceHelper {
     }
     public String getJk() {
         return app_prefs.getString(JK, "");
+    }
+
+    public void setId_provinsi(String loginourout){
+        SharedPreferences.Editor edit = app_prefs.edit();
+        edit.putString(id_provinsi,loginourout);
+        edit.commit();
+    }
+    public String getId_provinsi(){
+        return app_prefs.getString(id_provinsi,"");
+    }
+
+    public void putId_rw(String loginorout){
+        SharedPreferences.Editor edit = app_prefs.edit();
+        edit.putString(ID_RW,loginorout);
+        edit.commit();
+    }
+    public String getID_RW(){
+        return app_prefs.getString(ID_RW,"");
     }
 }

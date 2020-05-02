@@ -103,7 +103,7 @@ public class LoginAct extends AppCompatActivity {
                     try {
                         assert response.body() != null;
                         JSONObject jsonObject = new JSONObject(response.body().string());
-                        if (jsonObject.get("status ").equals("true")) {
+                        if (jsonObject.get("status").equals("true")) {
                             Log.i("If Status", "berhasil");
                             Intent intent = new Intent(LoginAct.this, DashboardAct.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -114,6 +114,7 @@ public class LoginAct extends AppCompatActivity {
                             String alamat = jsonObject.getJSONObject("data").get("alamat").toString();
                             String email = jsonObject.getJSONObject("data").get("email").toString();
                             String jk = jsonObject.getJSONObject("data").get("jk").toString();
+                            String id_rw=jsonObject.getJSONObject("data").get("rw").toString();
                             //String nama=jsonObject.getJSONObject("id").toString();
                             //String id=jsonObject.getJSONObject("data").getJSONObject("id").toString();
                             preferenceHelper.putName(nama);
@@ -121,13 +122,15 @@ public class LoginAct extends AppCompatActivity {
                             preferenceHelper.putEmail(email);
                             preferenceHelper.putAlamat(alamat);
                             preferenceHelper.putJk(jk);
+                            preferenceHelper.putId_rw(id_rw);
                             Log.d("id", preferenceHelper.getID());
                             Log.d("nama", preferenceHelper.getName());
                             Log.d("email", preferenceHelper.getEMAIL());
+                            Log.d("id_rw", preferenceHelper.getID_RW());
                             Log.d("jk", preferenceHelper.getJk());
                             Log.d("alamat", preferenceHelper.getAlamat());
                             //preferenceHelper.putHobby(id);
-
+                            Toast.makeText(LoginAct.this,"ID_RW"+preferenceHelper.getID_RW(),Toast.LENGTH_LONG).show();
                         } else if (jsonObject.get("Status  ").toString().equals("false")) {
                             Toast.makeText(LoginAct.this, jsonObject.getJSONObject("data").toString(), Toast.LENGTH_SHORT).show();
                         }

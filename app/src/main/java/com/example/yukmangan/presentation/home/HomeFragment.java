@@ -50,8 +50,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     private Button btn_selengkapnya;
     private PreferenceHelper preferenceHelper;
     LinearLayout menu_data,menu_news;
+    private ImageView img_gabung_rw;
     ImageView ic_setting;
-    private TextView tv_get_countrelawan;
+    private TextView tv_get_countrelawan,rw_bergabung;
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -70,12 +71,16 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         mProgressApp.setCancelable(true);
         mProgressApp.setMessage("Show Data");
         tv_get_countrelawan=view.findViewById(R.id.count_relawan);
+        rw_bergabung=view.findViewById(R.id.rw_bergabung);
         menu_data=view.findViewById(R.id.menu_data);
+        img_gabung_rw=view.findViewById(R.id.img_gabung_rw);
         menu_news=view.findViewById(R.id.menu_news);
         ic_setting = view.findViewById(R.id.ic_setting);
         getRelawanCount();
+        getRwCount();
         mProgressApp.show();
         menu_data.setOnClickListener(this);
+        img_gabung_rw.setOnClickListener(this);
         menu_news.setOnClickListener(this);
         ic_setting.setOnClickListener(this);
         final PieChart pieChart=view.findViewById(R.id.piechart);
@@ -99,7 +104,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
                 pieDataSet.setValueTextColor(Color.WHITE);
                 pieDataSet.setValueTextSize(14);
                 Description description=new Description();
-                description.setText("Tanggal "+": "+currentDate);
+                description.setText(" Tanggal "+": "+currentDate);
                 PieData pieData=new PieData(pieDataSet);
                 pieChart.setVisibility(View.VISIBLE);
                 pieChart.animateXY(2000,2000);
@@ -127,6 +132,10 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
             case R.id.ic_setting:
                 Intent act=new Intent(getActivity(),Profile.class);
                 startActivity(act);
+                break;
+            case R.id.img_gabung_rw:
+                Intent gabung_rw=new Intent(getActivity(), ValidasiRw.class);
+                startActivity(gabung_rw);
                 break;
         }
     }
@@ -158,6 +167,34 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
+            }
+        });
+    }
+    public void getRwCount(){
+        Retrofit retrofit=ApiServiceAll.getRetrofitService();
+        ApiEndpoint apiEndpoint=retrofit.create(ApiEndpoint.class);
+        Call<ResponseBody> call=apiEndpoint.getCountRw();
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                    if (response.isSuccessful()){
+                        try {
+                            JSONObject jsonObject=new JSONObject(response.body().string());
+                            if (jsonObject.getBoolean("status") == true){
+                                String totalrw=jsonObject.getJSONObject("Pesan").get("Total_relawan").toString();
+                                rw_bergabung.setText(totalrw+" "+"RW BERGABUNG");
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+
             }
         });
     }
